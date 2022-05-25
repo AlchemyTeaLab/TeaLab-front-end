@@ -5,7 +5,7 @@ import { signIn, signUp, signOut } from '../services/users';
 export const useAuth = () => {
   const context = useContext(authContext);
   if (context === undefined) {
-    throw new Error('useAuth must be user within UserProvider');
+    throw new Error('useAuth must be used within UserProvider');
   }
 
   const { user, setUser, newUser, setNewUser, profile, setProfile } = context;
