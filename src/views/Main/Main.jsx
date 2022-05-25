@@ -26,7 +26,7 @@ export default function Main() {
         <Route path='/profile'>
           <Profile />
         </Route>
-        <Route>
+        <Route path='/'>
           <Landing />
         </Route>
       </Switch>
