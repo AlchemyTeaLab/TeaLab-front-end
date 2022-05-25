@@ -46,7 +46,7 @@ export const getCurretUser = async () => {
 
 export const signOut = async () => {
   // fetch delete
-  const res = await fetch(`${process.env.API_URL}/api/v1/users`, {
+  const res = await fetch(`${process.env.API_URL}/api/v1/users/session`, {
     method: 'DELETE',
     credentials: 'include',
     mode: 'cors'
