@@ -1,10 +1,10 @@
 import { createContext, useState } from 'react';
-import { getUser } from '../services/fetch-utils';
+import { getCurretUser, signIn } from '../services/users';
 
 export const authContext = createContext();
 
 export default function AuthProvider({ children }) {
-  const currentUser = getUser();
+  const currentUser = getCurretUser();
   const [user, setUser] = useState(currentUser || { email: null });
   const [newUser, setNewUser] = useState(false);
   const [profile, setProfile] = useState(null);
