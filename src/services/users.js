@@ -6,10 +6,12 @@ export const signIn = async (email, password) => {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ email, password })
+      body: JSON.stringify({ email, password }),
     });
-    return res.json();
 
+    const response = await res.json();
+    console.log('RESSIGNIN', response);
+    return response;
   } catch (error) {
     throw new Error('Invalid credentials');
   }
@@ -23,22 +25,23 @@ export const signUp = async (email, password, username) => {
       headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
       mode: 'cors',
-      body: JSON.stringify({ email, password, username })
+      body: JSON.stringify({ email, password, username }),
     });
-    return res.json();
-    
+
+    const response = await res.json();
+    console.log('RESSIGNUP', response);
+    return response;
   } catch (error) {
     throw new Error('Invalid credentials');
   }
 };
 
-export const getCurretUser = async () => {
+export const getCurrentUser = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
-      credentials: 'include'
+      credentials: 'include',
     });
     return res.json();
-
   } catch (error) {
     return null;
   }
@@ -49,9 +52,8 @@ export const signOut = async () => {
   const res = await fetch(`${process.env.API_URL}/api/v1/users/session`, {
     method: 'DELETE',
     credentials: 'include',
-    mode: 'cors'
+    mode: 'cors',
   });
 
   return res.ok;
 };
-

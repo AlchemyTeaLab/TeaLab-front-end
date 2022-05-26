@@ -20,8 +20,8 @@ export const useAuth = () => {
     }
   };
 
-  const getCurretUser = async () => {
-    const profile = await getCurretUser();
+  const getCurrentUser = async () => {
+    const profile = await getCurrentUser();
 
     setProfile(profile.username);
   };
