@@ -1,6 +1,6 @@
 import { useContext } from 'react';
 import { authContext } from '../context/AuthProvider';
-import { signIn, signUp, signOut } from '../services/users';
+import { signIn, signUp, signOut, getCurrentUser } from '../services/users';
 
 export const useAuth = () => {
   const context = useContext(authContext);
@@ -20,7 +20,7 @@ export const useAuth = () => {
     }
   };
 
-  const getCurrentUser = async () => {
+  const setCurrentUser = async () => {
     const profile = await getCurrentUser();
 
     setProfile(profile.username);
@@ -39,5 +39,6 @@ export const useAuth = () => {
     authorizeUser,
     profile,
     setProfile,
+    setCurrentUser
   };
 };
