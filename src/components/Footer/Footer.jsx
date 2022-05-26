@@ -7,8 +7,8 @@ export default function Footer() {
 
   async function handleSignOut() {
     await signOutUser();
-    setUser(null);
-    history.replace('/login');
+    setUser({ email: null });
+    history.replace('/');
   }
 
   return (
