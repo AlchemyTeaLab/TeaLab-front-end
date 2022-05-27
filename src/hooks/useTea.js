@@ -46,5 +46,5 @@ export const useTea = () => {
     }
   }
 
-  return { ingredients, addIngredient, updateIngredient };
+  return { ingredients, addIngredient, updateIngredient, removeIngredient };
 };
