@@ -5,21 +5,15 @@ import {
   removeIngredientById,
   updateIngredientById,
 } from '../services/ingredientService';
-import {
-  createRecipe,
-  removeRecipeById,
-  updateRecipeById,
-} from '../services/recipeService';
 
-export const useTea = () => {
+export const useIngredients = () => {
   const context = useContext(teaContext);
   if (context === undefined) {
-    throw new Error('useTea must be used within TeaProvider');
+    throw new Error('useIngredients must be used within TeaProvider');
   }
 
-  const { ingredients, ingredientDispatch, recipes, recipeDispatch } = context;
+  const { ingredients, ingredientDispatch } = context;
   const [ingredient, setIngredient] = useState(null);
-  const [recipe, setRecipe] = useState(null);
 
   const addIngredient = async (ingredient) => {
     const newIngredient = await createIngredient(ingredient);
@@ -54,47 +48,10 @@ export const useTea = () => {
     }
   };
 
-  const addRecipe = async (recipe) => {
-    const newRecipe = await createRecipe(recipe);
-    recipeDispatch({ type: 'CREATE', payload: newRecipe });
-  };
-
-  const updateRecipe = async (recipe) => {
-    if (!recipe) return;
-
-    try {
-      const updated = await updateRecipeById({ ...recipe });
-      const payload = { ...updated };
-
-      setRecipe(payload);
-      recipeDispatch({ type: 'UPDATE', payload });
-      return payload;
-    } catch (error) {
-      throw new Error('update unsuccessful...');
-    }
-  };
-
-  const removeRecipe = async () => {
-    if (!recipe) return;
-
-    try {
-      const payload = await removeRecipeById(recipe.id);
-      setRecipe(null);
-      if (recipes) recipeDispatch({ type: 'DELETE', payload });
-      return payload;
-    } catch (error) {
-      throw new Error('unable to delete recipe');
-    }
-  };
-
   return {
     ingredients,
     addIngredient,
     updateIngredient,
     removeIngredient,
-    recipes,
-    addRecipe,
-    updateRecipe,
-    removeRecipe,
   };
 };
