@@ -8,17 +8,24 @@ export const useAuth = () => {
     throw new Error('useAuth must be used within UserProvider');
   }
 
-  const { user, setUser, newUser, setNewUser, profile, setProfile } = context;
+  const {
+    user,
+    setUser,
+    newUser,
+    setNewUser,
+    profile,
+    setProfile,
+    loading,
+    setLoading,
+  } = context;
 
   const authorizeUser = async (email, password, username) => {
     if (!newUser) {
       const responseUser = await signIn(email, password);
       setUser(responseUser.user);
-      localStorage.setItem('currentUser', JSON.stringify(responseUser.user));
     } else {
       const responseUser = await signUp(email, password, username);
       setUser(responseUser.user);
-      localStorage.setItem('currentUser', JSON.stringify(responseUser.user));
     }
   };
 
@@ -42,5 +49,7 @@ export const useAuth = () => {
     profile,
     setProfile,
     setCurrentUser,
+    loading,
+    setLoading,
   };
 };

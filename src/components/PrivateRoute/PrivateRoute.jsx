@@ -1,14 +1,16 @@
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
+import Loading from '../Loading/Loading';
 
 export default function PrivateRoute({ children, ...rest }) {
-  // const { user } = useAuth();
-  const user = localStorage.getItem('currentUser');
+  const { user, loading } = useAuth();
   const location = useLocation();
 
-  return (
+  return loading ? (
+    <Loading />
+  ) : (
     <Route {...rest}>
-      {user ? (
+      {user.email ? (
         children
       ) : (
         <Redirect
@@ -21,5 +23,3 @@ export default function PrivateRoute({ children, ...rest }) {
     </Route>
   );
 }
-
-// clear local storage on logout

@@ -7,12 +7,13 @@ export default function AuthProvider({ children }) {
   const [user, setUser] = useState({ email: null });
   const [newUser, setNewUser] = useState(false);
   const [profile, setProfile] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     async function getUser() {
       const currentUser = await getCurrentUser();
-      console.log('current user', currentUser);
       setUser(currentUser);
+      setLoading(false);
     }
     getUser();
   }, []);
@@ -24,6 +25,8 @@ export default function AuthProvider({ children }) {
     setNewUser,
     profile,
     setProfile,
+    loading,
+    setLoading,
   };
 
   return (
