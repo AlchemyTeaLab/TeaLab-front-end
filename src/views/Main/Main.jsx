@@ -1,5 +1,6 @@
 import React from 'react'
 import { Route, Switch } from 'react-router-dom'
+import PrivateRoute from '../../components/PrivateRoute/PrivateRoute'
 import About from '../About/About'
 import Auth from '../Auth/Auth'
 import Landing from '../Landing/Landing'
@@ -23,9 +24,9 @@ export default function Main() {
         <Route path='/ingredient/:id'>
           <IngredientDetail />
         </Route>
-        <Route path='/profile'>
+        <PrivateRoute path='/profile'>
           <Profile />
-        </Route>
+        </PrivateRoute>
         <Route path='/'>
           <Landing />
         </Route>
