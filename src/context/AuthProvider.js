@@ -4,7 +4,6 @@ import { getCurrentUser, signIn } from '../services/users';
 export const authContext = createContext();
 
 export default function AuthProvider({ children }) {
-  // const currentUser = getCurrentUser();
   const [user, setUser] = useState({ email: null });
   const [newUser, setNewUser] = useState(false);
   const [profile, setProfile] = useState(null);
@@ -12,6 +11,7 @@ export default function AuthProvider({ children }) {
   useEffect(() => {
     async function getUser() {
       const currentUser = await getCurrentUser();
+      console.log('current user', currentUser);
       setUser(currentUser);
     }
     getUser();

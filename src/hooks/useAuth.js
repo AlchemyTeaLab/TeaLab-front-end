@@ -12,17 +12,19 @@ export const useAuth = () => {
 
   const authorizeUser = async (email, password, username) => {
     if (!newUser) {
-      const { user, message } = await signIn(email, password);
-      setUser(user);
+      const responseUser = await signIn(email, password);
+      setUser(responseUser.user);
+      localStorage.setItem('currentUser', JSON.stringify(responseUser.user));
     } else {
-      const { user, message } = await signUp(email, password, username);
-      setUser(user);
+      const responseUser = await signUp(email, password, username);
+      setUser(responseUser.user);
+      localStorage.setItem('currentUser', JSON.stringify(responseUser.user));
     }
   };
 
   const setCurrentUser = async () => {
     const profile = await getCurrentUser();
-
+    console.log(profile);
     setProfile(profile.username);
   };
 
@@ -39,6 +41,6 @@ export const useAuth = () => {
     authorizeUser,
     profile,
     setProfile,
-    setCurrentUser
+    setCurrentUser,
   };
 };
