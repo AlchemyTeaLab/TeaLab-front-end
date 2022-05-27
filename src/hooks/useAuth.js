@@ -12,11 +12,11 @@ export const useAuth = () => {
 
   const authorizeUser = async (email, password, username) => {
     if (!newUser) {
-      const authenticatedUser = await signIn(email, password);
-      setUser(authenticatedUser);
+      const { user, message } = await signIn(email, password);
+      setUser(user);
     } else {
-      const authenticatedUser = await signUp(email, password, username);
-      setUser(authenticatedUser);
+      const { user, message } = await signUp(email, password, username);
+      setUser(user);
     }
   };
 
