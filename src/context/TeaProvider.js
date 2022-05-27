@@ -6,8 +6,10 @@ const ingredientReducer = (ingredients, { type, payload }) => {
   switch (type) {
     case 'CREATE':
       return [payload, ...ingredients];
-      case 'UPDATE':
-        return ingredients.map((ingredient) => (ingredient.id === payload.id ? payload : ingredient));
+    case 'UPDATE':
+      return ingredients.map((ingredient) => (ingredient.id === payload.id ? payload : ingredient));
+    case 'DELETE':
+      return ingredients.filter((ingredient) => ingredient.id !== payload.id);
     default:
       throw new Error(`Action ${type} is invalid`);
   }

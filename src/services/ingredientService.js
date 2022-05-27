@@ -20,3 +20,14 @@ export async function updateIngredientById(ingredient) {
   })
   return res.json();
 }
+
+export async function removeIngredientById(id) {
+  const res = await fetch(`${process.env.API_URL}/api/v1/ingredients`, {
+    method: 'DELETE',
+    header: { 'content-type': 'application/json' },
+    credentials: 'include',
+    mode: 'cors',
+    body: JSON.stringify(ingredient),
+  })
+  return res.json();
+}
