@@ -10,7 +10,6 @@ export const signIn = async (email, password) => {
     });
 
     const response = await res.json();
-    console.log('RESSIGNIN', response);
     return response;
   } catch (error) {
     throw new Error('Invalid credentials');
