@@ -8,6 +8,17 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
+
+  --fontHeading: ;
+  --fontPrimary: ;
+  --fontSecondary: ;
+
+  --colorPrimary: ;
+  --colorSecondary: ;
+  --colorTertiary: ;
+
+  --colorSuccess: ;
+  --colorWarning: ;
 }
 
 button {
