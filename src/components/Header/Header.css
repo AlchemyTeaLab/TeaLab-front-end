@@ -1,0 +1,20 @@
+header {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-template-areas: 
+    "h1 h1 h1 welcome";
+  align-items: center;
+}
+
+h1 {
+  grid-area: h1;
+}
+
+p {
+  grid-area: welcome;
+}
+
+p span {
+  font-weight: bold;
+}

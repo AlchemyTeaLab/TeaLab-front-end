@@ -1,5 +1,6 @@
 import React from 'react';
 import { useAuth } from '../../hooks/useAuth';
+import styles from './Header.css';
 
 export default function Header() {
   const { user } = useAuth();
