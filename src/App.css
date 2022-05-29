@@ -10,10 +10,37 @@ body {
   padding: 0;
 }
 
+button {
+  all: unset;
+  cursor: pointer;
+}
+
 ul {
   padding: 0;
 }
 
 ul li {
   list-style-type: none;
+}
+
+form {
+  width: 300px;
+  display: flex;
+  flex-direction: column;
+}
+
+form label {
+  width: 200px;
+  align-self: center;
+}
+
+form input {
+  width: 200px;
+  margin: 0.5em 0;
+  align-self: center;
+  text-align: center;
+}
+
+form button {
+  align-self: center;
 }
