@@ -1,4 +1,5 @@
 import { useHistory, useLocation, Link } from 'react-router-dom';
+import styles from './Footer.css';
 import { useAuth } from '../../hooks/useAuth';
 
 export default function Footer() {
