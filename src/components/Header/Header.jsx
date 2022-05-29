@@ -8,9 +8,7 @@ export default function Header() {
   return (
     <>
       <header>
-        <h1>
-          {'<'}TeaLab{' />'}
-        </h1>
+        <h1>TeaLab</h1>
         {user.email && (
           <p>
             Welcome <span>{user.username}</span>!
