@@ -11,7 +11,7 @@ export default function Header() {
         <h1>TeaLab</h1>
         {user.email && (
           <p>
-            Welcome <span>{user.username}</span>!
+            Welcome <span className={styles.username}>{user.username}</span>!
           </p>
         )}
       </header>

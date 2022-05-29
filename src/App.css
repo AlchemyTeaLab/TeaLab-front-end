@@ -26,13 +26,18 @@ body {
 }
 
 header {
-  color: var(--fontHeading)
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--fontHeading);
+  padding: 1em 2em;
 }
 
 footer {
   width: 100%;
   position: absolute;
   bottom: 0;
+  padding: 1em 2em;
 }
 
 button {
