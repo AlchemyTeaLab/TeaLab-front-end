@@ -6,9 +6,7 @@ export default function PrivateRoute({ children, ...rest }) {
   const { user, loading } = useAuth();
   const location = useLocation();
 
-  return loading ? (
-    <Loading />
-  ) : (
+  return (
     <Route {...rest}>
       {user.email ? (
         children
