@@ -1,9 +1,8 @@
 import { Redirect, Route, useLocation } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
-import Loading from '../Loading/Loading';
 
 export default function PrivateRoute({ children, ...rest }) {
-  const { user, loading } = useAuth();
+  const { user } = useAuth();
   const location = useLocation();
 
   return (
