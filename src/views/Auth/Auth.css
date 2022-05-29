@@ -11,7 +11,10 @@ form div span {
   cursor: initial;
 }
 
-form div span.clickable {
+.clickable {
   cursor: pointer;
 }
 
+.inactive {
+  color: var(--colorInactive);
+}

@@ -44,14 +44,14 @@ export default function Auth() {
           <span
             aria-label="toggle sign in for existing users"
             onClick={() => setNewUser(false)}
-            className={newUser ? styles.clickable : undefined}
+            className={newUser ? styles.clickable : styles.inactive}
           >
             Sign In
           </span>
           <span
             aria-label="toggle sign up for new users"
             onClick={() => setNewUser(true)}
-            className={!newUser ? styles.clickable : undefined}
+            className={!newUser ? styles.clickable : styles.inactive}
           >
             Sign Up
           </span>
