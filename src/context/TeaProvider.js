@@ -10,6 +10,8 @@ const ingredientReducer = (ingredients, { type, payload }) => {
       return ingredients.map((ingredient) =>
         ingredient.id === payload.id ? payload : ingredient
       );
+    case 'LOAD':
+      return payload;
     case 'DELETE':
       return ingredients.filter((ingredient) => ingredient.id !== payload.id);
     default:

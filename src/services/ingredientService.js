@@ -31,3 +31,21 @@ export async function removeIngredientById(id) {
   })
   return res.json();
 }
+
+export const getIngredients = async () => {
+  const res = await fetch(`${process.env.API_URL}/api/v1/ingredients`, {
+    credentials: 'include',
+    mode: 'cors',
+  });
+  return res.json();
+  
+}
+
+export const getIngredientsById = async ({ id }) => {
+  const res = await fetch(`${process.env.API_URL}/api/v1/ingredients/${id}`, {
+    credentials: 'include',
+    mode: 'cors',
+  });
+  return res.json();
+  
+}

@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { teaContext } from '../context/TeaProvider';
 import {
   createIngredient,
+  getIngredients,
   removeIngredientById,
   updateIngredientById,
 } from '../services/ingredientService';
@@ -48,10 +49,24 @@ export const useIngredients = () => {
     }
   };
 
+  const getListIngredients = async () => {
+    try {
+      const ingredients = await getIngredients();
+      console.log(ingredients);
+
+      const dispatch = ingredientDispatch({ type: 'LOAD', payload: ingredients });
+      console.log(dispatch);
+      return ingredients;
+    } catch (error) {
+      console.error(error);
+    }
+  };
+
   return {
     ingredients,
     addIngredient,
     updateIngredient,
     removeIngredient,
+    getListIngredients
   };
 };
