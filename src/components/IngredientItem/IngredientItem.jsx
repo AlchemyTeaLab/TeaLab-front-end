@@ -1,7 +1,10 @@
 import React from 'react'
 
-export default function IngredientItem() {
+export default function IngredientItem({ ingredient }) {
   return (
-    <div>IngredientItem</div>
+    <>
+    <input type='checkbox' value={ingredient.commonName} name={ingredient.commonName}/>
+    <label htmlFor={ingredient.commonName}>{ingredient.commonName}</label>
+    </>
   )
 }

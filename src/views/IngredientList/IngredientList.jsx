@@ -1,14 +1,11 @@
 import { useEffect, useState } from 'react';
+import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
-
-
 
 export default function IngredientList() {
   const { ingredients, getListIngredients } = useIngredients();
 
-  // const [ingredients, setIngredients] = useState([]);
-  // const [results, setResults] = useState([]);
-  // const [search, setSearch] = useState('');
+  
  
   
 //   const searching = !!search.length;
@@ -39,16 +36,19 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-        
+        <form>
         <ul>
             {ingredients.map((ingredient, i) => {
                 return (
                     <li key={`${ingredient.id} - ${i}`}>
-                        {ingredient.commonName}
+                        <IngredientItem ingredient={ingredient}/>
                     </li>
                 )
             })}
         </ul>
+        <button>Brew!</button>
+        </form>
+        
         
     
     </>
