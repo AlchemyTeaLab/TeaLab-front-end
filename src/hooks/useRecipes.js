@@ -53,9 +53,7 @@ export const useRecipes = () => {
 
   const getUserRecipes = async (id) => {
     try {
-      // fetch
       const recipes = await getRecipesById(id);
-      // dispatch
       recipeDispatch({ type: 'UPDATE', payload: recipes });
       return recipes;
     } catch (error) {
