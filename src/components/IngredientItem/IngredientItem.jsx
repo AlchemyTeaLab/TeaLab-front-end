@@ -5,6 +5,7 @@ export default function IngredientItem({ ingredient }) {
     <>
     <input type='checkbox' value={ingredient.commonName} name={ingredient.commonName}/>
     <label htmlFor={ingredient.commonName}>{ingredient.commonName}</label>
+    <button>❔</button>
     </>
   )
 }

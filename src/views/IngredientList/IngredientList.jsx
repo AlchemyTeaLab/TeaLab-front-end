@@ -38,6 +38,7 @@ export default function IngredientList() {
                     onChange={(e) => {handleSearch(e)}} /> */}
         <form>
         <ul>
+          <h3>Base</h3>
             {ingredients.filter((i) => i.type === 'Base')
             .map((ingredient, i) => {
                 return (
@@ -48,6 +49,7 @@ export default function IngredientList() {
             })}
         </ul>
         <ul>
+        <h3>Flavor</h3>
         {ingredients.filter((i) => i.type === 'Flavor')
         .map((ingredient, i) => {
                 return (
@@ -58,6 +60,7 @@ export default function IngredientList() {
             })}
         </ul>
         <ul>
+        <h3>Boost</h3>
         {ingredients.filter((i) => i.type === 'Boost')
         .map((ingredient, i) => {
                 return (
