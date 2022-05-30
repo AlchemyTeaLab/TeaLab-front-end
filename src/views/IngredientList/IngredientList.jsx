@@ -38,7 +38,28 @@ export default function IngredientList() {
                     onChange={(e) => {handleSearch(e)}} /> */}
         <form>
         <ul>
-            {ingredients.map((ingredient, i) => {
+            {ingredients.filter((i) => i.type === 'Base')
+            .map((ingredient, i) => {
+                return (
+                    <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem ingredient={ingredient}/>
+                    </li>
+                )
+            })}
+        </ul>
+        <ul>
+        {ingredients.filter((i) => i.type === 'Flavor')
+        .map((ingredient, i) => {
+                return (
+                    <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem ingredient={ingredient}/>
+                    </li>
+                )
+            })}
+        </ul>
+        <ul>
+        {ingredients.filter((i) => i.type === 'Boost')
+        .map((ingredient, i) => {
                 return (
                     <li key={`${ingredient.id} - ${i}`}>
                         <IngredientItem ingredient={ingredient}/>
