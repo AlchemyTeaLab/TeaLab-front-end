@@ -20,23 +20,39 @@ export const useAuth = () => {
   } = context;
 
   const authorizeUser = async (email, password, username) => {
-    if (!newUser) {
-      const responseUser = await signIn(email, password);
-      setUser(responseUser.user);
-    } else {
-      const responseUser = await signUp(email, password, username);
-      setUser(responseUser.user);
+    try {
+      if (!newUser) {
+        const responseUser = await signIn(email, password);
+        setUser(responseUser.user);
+      } else {
+        const responseUser = await signUp(email, password, username);
+        setUser(responseUser.user);
+      }
+    } catch (error) {
+      console.error(error.message);
+      throw error;
     }
+    
   };
 
   const setCurrentUser = async () => {
-    const profile = await getCurrentUser();
-    console.log(profile);
-    setProfile(profile.username);
+    try {
+      const profile = await getCurrentUser();
+      setProfile(profile.username);
+    } catch (error) {
+      console.error(error.message);
+      throw error;
+    }
+    
   };
 
   const signOutUser = async () => {
-    await signOut();
+    try {
+      await signOut();
+    } catch (error) {
+      console.error(error);
+    }
+   
   };
 
   return {

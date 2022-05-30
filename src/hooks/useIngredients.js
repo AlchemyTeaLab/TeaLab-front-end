@@ -32,7 +32,7 @@ export const useIngredients = () => {
       ingredientDispatch({ type: 'UPDATE', payload });
       return payload;
     } catch (error) {
-      throw new Error('update unsuccessful...');
+      console.error(error);
     }
   };
 
@@ -45,18 +45,17 @@ export const useIngredients = () => {
       if (ingredients) ingredientDispatch({ type: 'DELETE', payload });
       return payload;
     } catch (error) {
-      throw new Error('unable to delete ingredient');
+      console.error(error);
     }
   };
 
   const getListIngredients = async () => {
     try {
-      const ingredients = await getIngredients();
-      console.log(ingredients);
+      const payload = await getIngredients();
 
-      const dispatch = ingredientDispatch({ type: 'LOAD', payload: ingredients });
-      console.log(dispatch);
-      return ingredients;
+      ingredientDispatch({ type: 'LOAD', payload });
+      
+      return payload;
     } catch (error) {
       console.error(error);
     }
