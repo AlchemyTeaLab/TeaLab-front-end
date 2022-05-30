@@ -2,6 +2,7 @@ import { useContext, useState } from 'react';
 import { teaContext } from '../context/TeaProvider';
 import {
   createIngredient,
+  getIngredients,
   removeIngredientById,
   updateIngredientById,
 } from '../services/ingredientService';
@@ -31,7 +32,7 @@ export const useIngredients = () => {
       ingredientDispatch({ type: 'UPDATE', payload });
       return payload;
     } catch (error) {
-      throw new Error('update unsuccessful...');
+      console.error(error);
     }
   };
 
@@ -44,7 +45,19 @@ export const useIngredients = () => {
       if (ingredients) ingredientDispatch({ type: 'DELETE', payload });
       return payload;
     } catch (error) {
-      throw new Error('unable to delete ingredient');
+      console.error(error);
+    }
+  };
+
+  const getListIngredients = async () => {
+    try {
+      const payload = await getIngredients();
+
+      ingredientDispatch({ type: 'LOAD', payload });
+      
+      return payload;
+    } catch (error) {
+      console.error(error);
     }
   };
 
@@ -53,5 +66,6 @@ export const useIngredients = () => {
     addIngredient,
     updateIngredient,
     removeIngredient,
+    getListIngredients
   };
 };

@@ -34,7 +34,7 @@ export const useRecipes = () => {
       recipeDispatch({ type: 'UPDATE', payload });
       return payload;
     } catch (error) {
-      throw new Error('update unsuccessful...');
+      console.error(error);
     }
   };
 
@@ -47,15 +47,15 @@ export const useRecipes = () => {
       if (recipes) recipeDispatch({ type: 'DELETE', payload });
       return payload;
     } catch (error) {
-      throw new Error('unable to delete recipe');
+      console.error(error);
     }
   };
 
   const getUserRecipes = async (id) => {
     try {
-      const recipes = await getRecipesById(id);
-      recipeDispatch({ type: 'UPDATE', payload: recipes });
-      return recipes;
+      const payload = await getRecipesById(id);
+      recipeDispatch({ type: 'UPDATE', payload });
+      return payload;
     } catch (error) {
       console.error(error);
     }

@@ -39,7 +39,6 @@ export const getCurrentUser = async () => {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
       credentials: 'include',
     });
-    console.log('RES', res);
     return res.json();
   } catch (error) {
     return null;
