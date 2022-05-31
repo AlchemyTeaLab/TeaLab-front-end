@@ -7,9 +7,7 @@ import styles from './IngredientList.css';
 export default function IngredientList() {
   const { ingredients, getListIngredients } = useIngredients();
   const { addRecipe } = useRecipes();
-  const [bases, setBases] = useState([]);
-  const [flavors, setFlavors] = useState([]);
-  const [boosts, setBoosts] = useState([]);
+  const [recipeItems, setRecipeItems] = useState([]);
 
   //   const searching = !!search.length;
   //   const list = searching ? results : ingredients;
@@ -30,10 +28,10 @@ export default function IngredientList() {
   }, []);
 
   function handleChange(e) {
-    const newBases = e.target.checked
-      ? [...bases, e.target.value]
-      : bases.filter((i) => i !== e.target.value);
-    setBases(newBases);
+    const newRecipe = e.target.checked
+      ? [...recipeItems, e.target.value]
+      : recipeItems.filter((i) => i !== e.target.value);
+    setRecipeItems(newRecipe);
   }
 
   async function handleBrew(e) {
