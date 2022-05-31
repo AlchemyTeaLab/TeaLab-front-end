@@ -7,6 +7,7 @@ export default function IngredientItem({ ingredient, handleChange }) {
       <button title="More info">❔</button>
       <input
         type="checkbox"
+        aria-label="checkbox"
         value={ingredient.id}
         name={ingredient.commonName}
         onChange={handleChange}

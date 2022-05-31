@@ -1,4 +1,5 @@
 import { screen, render, waitFor } from '@testing-library/react';
+import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
@@ -57,6 +58,11 @@ describe('IngredientList view', () => {
         waitFor(() => {
             const base = screen.getByText('Oolong Tea', { exact: false });
             expect(base).toBeInTheDocument();
+
+            const checkbox = screen.getByLabelText('checkbox');
+            userEvent.click(checkbox);
+
+            expect(checkbox).toBeChecked();
         });
     });
 });
