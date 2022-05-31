@@ -17,17 +17,17 @@ export default function IngredientDetail({ ingredient, open, onClose }) {
   //const { id } = useParams();
   //const { ingredient, getDetailsById } = useIngredients(id);
 if (!open) return null;
-  return (
+  return ReactDOM.createPortal(
     <>
-    <div style={MODAL_STYLES}>Stuff
-      <button onClick={onClose}> X </button>
+    <div style={MODAL_STYLES}>
+      <button type='button' onClick={onClose}> X </button>
       <h3>Common Name: {ingredient.commonName}</h3>
       <p>Scientific Name: {ingredient.scientificName}</p>
       <p>Type: {ingredient.type}</p>
       <p>Health Benefits: {ingredient.healthBenefits}</p>
       <p>Description: {ingredient.description}</p>
     </div>
-    </>
-    //document.getElementById(`ingredients/${id}`)
+    </>,
+    document.getElementById(`portal`)
   )
 }

@@ -12,7 +12,7 @@ export default function IngredientItem({ ingredient }) {
   return (
     <>
       <label htmlFor={ingredient.commonName}>{ingredient.commonName}</label>
-      <button title="More info" onClick={() => {setOpenModal(true)}}>❔</button>
+      <button type='button' title="More info" onClick={() => {setOpenModal(true)}}>❔</button>
       <IngredientDetail open={openModal} onClose={() => setOpenModal(false)} ingredient={ingredient}/>
       <input
         type="checkbox"
