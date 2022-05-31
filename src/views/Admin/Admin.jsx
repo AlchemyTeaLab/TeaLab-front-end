@@ -41,7 +41,7 @@ export default function Admin() {
       type,
       commonName,
       scientificName,
-      healthBenefits: healthBenefits.split(','),
+      healthBenefits: healthBenefits.split(', '),
       description,
       image: imageUrl,
     });
