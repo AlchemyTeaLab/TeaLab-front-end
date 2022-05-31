@@ -12,7 +12,7 @@ export const signIn = async (email, password) => {
     return response;
   } catch (err) {
     //
-    throw new Error('wrong!');
+    throw err;
   }
 };
 
