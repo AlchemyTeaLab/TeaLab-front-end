@@ -23,7 +23,6 @@ export default function Auth() {
     try {
       e.preventDefault();
       const { message, user } = await authorizeUser(email, password, username);
-      console.log('message', message);
 
       if (
         message !== 'Successfully signed in!' &&

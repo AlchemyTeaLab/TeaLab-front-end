@@ -24,12 +24,12 @@ export const useAuth = () => {
       if (!newUser) {
         const authorizedUser = await signIn(email, password);
         setUser(authorizedUser.user);
+
         return authorizedUser;
       } else {
         const authorizedUser = await signUp(email, password, username);
         setUser(authorizedUser.user);
 
-        console.log('authuser', authorizedUser);
         return authorizedUser;
       }
     } catch (err) {
@@ -40,7 +40,6 @@ export const useAuth = () => {
   const setCurrentUser = async () => {
     try {
       const profile = await getCurrentUser();
-      console.log('profile', profile);
       setProfile(profile.username);
     } catch (err) {
       throw err;
