@@ -73,10 +73,7 @@
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "react-hot-toast": "^2.2.0",
-<<<<<<< HEAD
     "react-modal": "^3.15.1",
-=======
->>>>>>> 960079cf30fb9786415b4adc99a15d18fa432d1a
     "react-router-dom": "^5.3.3"
   }
 }
