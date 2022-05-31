@@ -1,12 +1,15 @@
 import { useEffect, useState } from 'react';
 import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
+import { useRecipes } from '../../hooks/useRecipes';
 
 export default function IngredientList() {
   const { ingredients, getListIngredients } = useIngredients();
+  const { addRecipe } = useRecipes();
+  const [bases, setBases] = useState([]);
+  const [flavors, setFlavors] = useState([]);
+  const [boosts, setBoosts] = useState([]);
 
-  
- 
   
 //   const searching = !!search.length;
 //   const list = searching ? results : ingredients;
@@ -26,6 +29,16 @@ export default function IngredientList() {
     getIngredients();
 }, []);
 
+  function handleChange(e) {
+    e.target.checked
+      && setBases([...bases, e.target.value])
+      !e.target.checked && setBases(bases.filter((i) => i.id !== e.target.value));
+  }
+
+  async function handleBrew(e) {
+    e.preventDefault();
+    await addRecipe({ name: '' , user_id, notes });
+  }
 
   return (
     <>
@@ -43,7 +56,7 @@ export default function IngredientList() {
             .map((ingredient, i) => {
                 return (
                     <li key={`${ingredient.id} - ${i}`}>
-                        <IngredientItem ingredient={ingredient}/>
+                        <IngredientItem ingredient={ingredient} handleChange={handleChange} />
                     </li>
                 )
             })}
@@ -54,7 +67,7 @@ export default function IngredientList() {
         .map((ingredient, i) => {
                 return (
                     <li key={`${ingredient.id} - ${i}`}>
-                        <IngredientItem ingredient={ingredient}/>
+                        <IngredientItem ingredient={ingredient} handleChange={handleChange}/>
                     </li>
                 )
             })}
@@ -65,7 +78,7 @@ export default function IngredientList() {
         .map((ingredient, i) => {
                 return (
                     <li key={`${ingredient.id} - ${i}`}>
-                        <IngredientItem ingredient={ingredient}/>
+                        <IngredientItem ingredient={ingredient} handleChange={handleChange}/>
                     </li>
                 )
             })}
