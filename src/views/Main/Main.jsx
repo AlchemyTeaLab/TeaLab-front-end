@@ -22,9 +22,6 @@ export default function Main() {
         <Route path="/ingredients">
           <IngredientList />
         </Route>
-        <Route path="/ingredient/:id">
-          <IngredientDetail />
-        </Route>
         <PrivateRoute path="/profile">
           <Profile />
         </PrivateRoute>

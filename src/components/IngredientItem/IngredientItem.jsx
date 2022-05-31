@@ -5,7 +5,6 @@ import { useState } from 'react';
 
 
 export default function IngredientItem({ ingredient }) {
-  // const { id, commonName, scientificName, type, healthBenefits, description } = ingredient;
   const [openModal, setOpenModal] = useState(false);
 
   
