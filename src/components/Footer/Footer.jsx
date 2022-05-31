@@ -11,7 +11,7 @@ export default function Footer() {
     { path: '/about', name: 'About' },
   ];
 
-  const signInOutButton = user.email ? (
+  const signInOutButton = user?.email ? (
     <button onClick={handleSignOut}>Sign Out</button>
   ) : (
     <button onClick={() => history.push('/login')}>Sign In</button>

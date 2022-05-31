@@ -20,7 +20,7 @@ export default function IngredientList() {
   //     ingredient.name.toLowerCase().includes(event.target.value.toLowerCase().trim()));
   //     setResults(filteredSearch);
   // }
-
+console.log(ingredients)
   useEffect(() => {
     async function getIngredients() {
       await getListIngredients();

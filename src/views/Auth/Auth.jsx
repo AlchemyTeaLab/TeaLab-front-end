@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Auth.css';
+import toast from 'react-hot-toast';
 import { useAuth } from '../../hooks/useAuth';
 
 export default function Auth() {
@@ -11,25 +12,30 @@ export default function Auth() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const { from } = location.state || { from: { pathname: '/' } };
 
   useEffect(() => {
-    user.email && history.replace('/');
+    user?.email && history.replace('/');
   }, []);
 
   const handleSubmit = async (e) => {
     try {
       e.preventDefault();
-      await authorizeUser(email, password, username);
+      const { message, user } = await authorizeUser(email, password, username);
+      console.log('message', message);
+
+      if (message !== 'Successfully signed in!')
+        throw new Error(`Oh no! ${message}...`);
+
       setEmail('');
       setPassword('');
       setUsername('');
 
-      history.replace(from.pathname);
-    } catch (error) {
-      setError(error.message);
+      toast(`Hello ${user.username}!`);
+      history.replace(from.pathname !== '/' ? from.pathname : '/ingredients');
+    } catch (err) {
+      toast.error(err.message);
     }
   };
 

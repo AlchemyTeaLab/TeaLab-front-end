@@ -22,37 +22,37 @@ export const useAuth = () => {
   const authorizeUser = async (email, password, username) => {
     try {
       if (!newUser) {
-        const responseUser = await signIn(email, password);
-        setUser(responseUser.user);
+        const authorizedUser = await signIn(email, password);
+        setUser(authorizedUser.user);
+
+        return authorizedUser;
       } else {
-        const responseUser = await signUp(email, password, username);
-        setUser(responseUser.user);
+        const authorizedUser = await signUp(email, password, username);
+        setUser(authorizedUser.user);
+
+        return authorizedUser;
       }
-    } catch (error) {
-      console.error(error.message);
-      throw error;
+    } catch (err) {
+      throw err;
     }
-    
   };
 
   const setCurrentUser = async () => {
     try {
       const profile = await getCurrentUser();
+      console.log('profile', profile);
       setProfile(profile.username);
-    } catch (error) {
-      console.error(error.message);
-      throw error;
+    } catch (err) {
+      throw err;
     }
-    
   };
 
   const signOutUser = async () => {
     try {
       await signOut();
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      throw err;
     }
-   
   };
 
   return {
