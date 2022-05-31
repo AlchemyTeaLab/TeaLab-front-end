@@ -1,5 +1,4 @@
 import { useContext } from 'react';
-import toast from 'react-hot-toast';
 import { authContext } from '../context/AuthProvider';
 import { signIn, signUp, signOut, getCurrentUser } from '../services/users';
 
@@ -23,15 +22,17 @@ export const useAuth = () => {
   const authorizeUser = async (email, password, username) => {
     try {
       if (!newUser) {
-        const responseUser = await signIn(email, password);
-        setUser(responseUser.user);
+        const authorizedUser = await signIn(email, password);
+        setUser(authorizedUser.user);
+
+        return authorizedUser;
       } else {
-        const responseUser = await signUp(email, password, username);
-        setUser(responseUser.user);
+        const authorizedUser = await signUp(email, password, username);
+        setUser(authorizedUser.user);
+
+        return authorizedUser;
       }
     } catch (err) {
-      //
-      toast.error(err.message);
       throw err;
     }
   };
@@ -39,11 +40,9 @@ export const useAuth = () => {
   const setCurrentUser = async () => {
     try {
       const profile = await getCurrentUser();
+      console.log('profile', profile);
       setProfile(profile.username);
-      toast(`hello ${profile.username}`, { icon: '👋' });
     } catch (err) {
-      //
-      toast.error(err.message);
       throw err;
     }
   };
@@ -52,8 +51,6 @@ export const useAuth = () => {
     try {
       await signOut();
     } catch (err) {
-      //
-      toast.error(err.message);
       throw err;
     }
   };

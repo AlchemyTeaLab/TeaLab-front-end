@@ -11,7 +11,6 @@ export const signIn = async (email, password) => {
     const response = await res.json();
     return response;
   } catch (err) {
-    //
     throw err;
   }
 };
@@ -29,7 +28,6 @@ export const signUp = async (email, password, username) => {
     const response = await res.json();
     return response;
   } catch (err) {
-    //
     throw err;
   }
 };
@@ -41,13 +39,11 @@ export const getCurrentUser = async () => {
     });
     return res.json();
   } catch (err) {
-    //
     return null;
   }
 };
 
 export const signOut = async () => {
-  // fetch delete
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/session`, {
       method: 'DELETE',
@@ -57,7 +53,6 @@ export const signOut = async () => {
 
     return res.ok;
   } catch (error) {
-    //
     throw err;
   }
 };
