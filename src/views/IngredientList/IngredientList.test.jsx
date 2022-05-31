@@ -53,10 +53,10 @@ describe('IngredientList view', () => {
                 </TeaProvider>
             </MemoryRouter>
         );
+
         waitFor(() => {
             const base = screen.getByText('Oolong Tea', { exact: false });
             expect(base).toBeInTheDocument();
         });
-
     });
 });

@@ -3,13 +3,16 @@ import userEvent from '@testing-library/user-event';
 import { MemoryRouter } from 'react-router-dom';
 import AuthProvider from './context/AuthProvider';
 import App from './App';
+import TeaProvider from './context/TeaProvider';
 
 describe('<App />', () => {
     it('signs in a user', async () => {
         render(
             <MemoryRouter initialEntries={['/login']} initialIndex={0}>
                 <AuthProvider>
-                    <App />
+                    <TeaProvider>
+                        <App />
+                    </TeaProvider>
                 </AuthProvider>
             </MemoryRouter>
         );
@@ -28,7 +31,9 @@ describe('<App />', () => {
         render(
             <MemoryRouter initialEntries={['/login']} initialIndex={0}>
                 <AuthProvider>
-                    <App />
+                    <TeaProvider>
+                        <App />
+                    </TeaProvider>
                 </AuthProvider>
             </MemoryRouter>
         );
