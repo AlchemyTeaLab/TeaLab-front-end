@@ -1,4 +1,4 @@
-import { screen, render, findAllByRole } from '@testing-library/react';
+import { screen, render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
@@ -54,7 +54,8 @@ describe('IngredientList view', () => {
             </MemoryRouter>
         );
 
-        const li = findAllByRole('li');
-        expect(li).toHaveLength(3);
+        const base = screen.getByText('Oolong Tea', { exact: false });
+        expect(base).toBeInTheDocument();
+        
     });
 });
