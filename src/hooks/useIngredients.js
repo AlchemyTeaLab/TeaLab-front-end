@@ -3,6 +3,7 @@ import { teaContext } from '../context/TeaProvider';
 import {
   createIngredient,
   getIngredients,
+  getIngredientsById,
   removeIngredientById,
   updateIngredientById,
 } from '../services/ingredientService';
@@ -60,6 +61,18 @@ export const useIngredients = () => {
       console.error(error);
     }
   };
+
+  const getDetailsById = async (id) => {
+    try {
+      const payload = await getIngredientsById(id);
+      ingredientDispatch({ type: 'UPDATE', payload })
+
+      return payload;
+      
+    } catch (error) {
+      console.error(error);
+    }
+  }
 
   return {
     ingredients,
