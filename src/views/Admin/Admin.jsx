@@ -25,13 +25,11 @@ export default function Admin() {
       body: formData,
     })
       .then((response) => {
-        // console.log('response', response);
         return response.json();
       })
       .then((finalResponse) => {
         setPublicId(finalResponse.public_id);
         setImageUrl(finalResponse.secure_url);
-        console.log('final', finalResponse);
       });
   };
 
@@ -110,7 +108,6 @@ export default function Admin() {
           // value={image}
           onChange={(e) => {
             setImage(e.target.files[0]);
-            console.log('files', e.target.files[0]);
           }}
         />
         <button>Submit</button>

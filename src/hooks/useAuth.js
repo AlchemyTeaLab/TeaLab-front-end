@@ -40,7 +40,6 @@ export const useAuth = () => {
   const setCurrentUser = async () => {
     try {
       const profile = await getCurrentUser();
-      console.log('profile', profile);
       setProfile(profile.username);
     } catch (err) {
       throw err;
