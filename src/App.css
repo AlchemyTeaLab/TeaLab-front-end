@@ -34,6 +34,7 @@ body {
 }
 
 header {
+  height: 25vh;
   position: relative;
   display: flex;
   justify-content: space-between;
@@ -55,25 +56,32 @@ header::before {
 }
 
 main {
+  height: 65vh;
+  position: relative;
   display: flex;
   flex-direction: column;
   align-items: center;
-  overflow-y: scroll;
-  height: 500px;
+  overflow-y: hidden;
+  z-index: 1;
 }
 
 footer {
   width: 100%;
-  height: 150px;
+  height: 35vh;
   position: fixed;
   bottom: 0;
   display: flex;
   justify-content: flex-end;
   align-items: flex-end;
   padding: 1em 2em;
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+  z-index: 0;
 }
 
-footer::after {
+/* footer::after {
   content: '';
   background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
   position: absolute;
@@ -84,7 +92,7 @@ footer::after {
   bottom: 10px;
   left: 0px;
   z-index: -1;
-}
+} */
 
 button {
   all: unset;
@@ -112,6 +120,7 @@ form {
   width: 300px;
   display: flex;
   flex-direction: column;
+  background: rgba(248, 248, 255, 0.5);
 }
 
 form label {

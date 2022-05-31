@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
 import { useRecipes } from '../../hooks/useRecipes';
+import styles from './IngredientList.css';
 
 export default function IngredientList() {
   const { ingredients, getListIngredients } = useIngredients();
@@ -46,56 +47,64 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-      <form>
+      <form className={styles.ingredients}>
         <div>
-          <ul>
+          <section>
             <h3>Base</h3>
-            {ingredients
-              .filter((i) => i.type === 'Base')
-              .map((ingredient, i) => {
-                return (
-                  <li key={`${ingredient.id} - ${i}`}>
-                    <IngredientItem
-                      ingredient={ingredient}
-                      handleChange={handleChange}
-                    />
-                  </li>
-                );
-              })}
-          </ul>
-          <ul>
+            <ul>
+              {ingredients
+                .filter((i) => i.type === 'Base')
+                .map((ingredient, i) => {
+                  return (
+                    <li key={`${ingredient.id} - ${i}`}>
+                      <IngredientItem
+                        ingredient={ingredient}
+                        handleChange={handleChange}
+                      />
+                    </li>
+                  );
+                })}
+            </ul>
+          </section>
+
+          <section>
             <h3>Flavor</h3>
-            {ingredients
-              .filter((i) => i.type === 'Flavor')
-              .map((ingredient, i) => {
-                return (
-                  <li key={`${ingredient.id} - ${i}`}>
-                    <IngredientItem
-                      ingredient={ingredient}
-                      handleChange={handleChange}
-                    />
-                  </li>
-                );
-              })}
-          </ul>
-          <ul>
+            <ul>
+              {ingredients
+                .filter((i) => i.type === 'Flavor')
+                .map((ingredient, i) => {
+                  return (
+                    <li key={`${ingredient.id} - ${i}`}>
+                      <IngredientItem
+                        ingredient={ingredient}
+                        handleChange={handleChange}
+                      />
+                    </li>
+                  );
+                })}
+            </ul>
+          </section>
+
+          <section>
             <h3>Boost</h3>
-            {ingredients
-              .filter((i) => i.type === 'Boost')
-              .map((ingredient, i) => {
-                return (
-                  <li key={`${ingredient.id} - ${i}`}>
-                    <IngredientItem
-                      ingredient={ingredient}
-                      handleChange={handleChange}
-                    />
-                  </li>
-                );
-              })}
-          </ul>
+            <ul>
+              {ingredients
+                .filter((i) => i.type === 'Boost')
+                .map((ingredient, i) => {
+                  return (
+                    <li key={`${ingredient.id} - ${i}`}>
+                      <IngredientItem
+                        ingredient={ingredient}
+                        handleChange={handleChange}
+                      />
+                    </li>
+                  );
+                })}
+            </ul>
+          </section>
         </div>
 
-        <button>Brew!</button>
+        <button className={styles.brew}>Brew!</button>
       </form>
     </>
   );
