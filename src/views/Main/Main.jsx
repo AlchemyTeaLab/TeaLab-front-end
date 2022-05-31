@@ -22,9 +22,9 @@ export default function Main() {
         <Route path="/ingredients">
           <IngredientList />
         </Route>
-        <Route path="/ingredient/:id">
+        {/* <Route path="/ingredient/:id">
           <IngredientDetail />
-        </Route>
+        </Route> */}
         <PrivateRoute path="/profile">
           <Profile />
         </PrivateRoute>
