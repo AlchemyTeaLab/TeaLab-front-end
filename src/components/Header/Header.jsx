@@ -12,9 +12,9 @@ export default function Header() {
     <>
       <header className={publicLocation ? styles.public : null}>
         <h1>TeaLab</h1>
-        {user.email && !publicLocation && (
+        {user?.email && !publicLocation && (
           <p>
-            Welcome <span className={styles.username}>{user.username}</span>!
+            Welcome <span className={styles.username}>{user?.username}</span>!
           </p>
         )}
       </header>
