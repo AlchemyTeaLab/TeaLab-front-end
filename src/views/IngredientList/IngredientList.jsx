@@ -30,8 +30,10 @@ export default function IngredientList() {
   }, []);
 
   function handleChange(e) {
-    e.target.checked && setBases([...bases, e.target.value]);
-    !e.target.checked && setBases(bases.filter((i) => i.id !== e.target.value));
+    const newBases = e.target.checked
+      ? [...bases, e.target.value]
+      : bases.filter((i) => i !== e.target.value);
+    setBases(newBases);
   }
 
   async function handleBrew(e) {
