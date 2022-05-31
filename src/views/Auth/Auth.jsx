@@ -16,7 +16,7 @@ export default function Auth() {
   const { from } = location.state || { from: { pathname: '/' } };
 
   useEffect(() => {
-    user.email && history.replace('/');
+    user?.email && history.replace('/');
   }, []);
 
   const handleSubmit = async (e) => {
