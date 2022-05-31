@@ -1,0 +1,17 @@
+form.ingredients {
+  width: 650px;
+}
+
+form.ingredients div ul {
+  height: 50%;
+  overflow-y: scroll;
+}
+
+h3 {
+  display: inline;
+}
+
+/* button.brew {
+  position: absolute;
+  top: 0;
+} */

@@ -9,36 +9,90 @@ body {
   margin: 0;
   padding: 0;
   
-  --fontHeading: #333;
-  --fontPrimary: #3d3d3d;
+  --fontHeading: 'lemongrass-script', sans-serif;
+;
+  --fontPrimary: ;
   --fontSecondary: ;
   
-  --colorPrimary: ;
-  --colorSecondary: ;
+  --colorPrimary: #333;
+  --colorSecondary: #3d3d3d;
   --colorTertiary: ;
   
   --colorSuccess: ;
   --colorWarning: ;
   --colorActive: dodgerBlue;
   --colorInactive: #d3d3d3;
-  
-  color: var(--fontPrimary)
+
+  font-family: var(--fontHeading);
+  color: var(--fontPrimary);
+  font-weight: 400;
+  font-style: normal;
+  background: linear-gradient(-45deg, #f0ddcb77, #d8c6b677, #d5cec877, #dcdad977);
+	background-size: 400% 400%;
+	animation: gradient 15s ease infinite;
+  text-shadow: 2px 2px 3px ghostwhite;
 }
 
 header {
+  height: 25vh;
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  color: var(--fontHeading);
+  color: var(--colorPrimary);
   padding: 1em 2em;
+}
+
+header::before {
+  content: '';
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978031/vector_assets/flowers.svg');
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 0.85;
+  z-index: -1;
+}
+
+main {
+  height: 65vh;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow-y: hidden;
+  z-index: 1;
 }
 
 footer {
   width: 100%;
-  position: absolute;
+  height: 35vh;
+  position: fixed;
   bottom: 0;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
   padding: 1em 2em;
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  /* background-size: cover; */
+  z-index: 0;
 }
+
+/* footer::after {
+  content: '';
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
+  position: absolute;
+  background-repeat: no-repeat;
+  background-size: 100% 150px;
+  top: 0px;
+  right: 0px;
+  bottom: 10px;
+  left: 0px;
+  z-index: -1;
+} */
 
 button {
   all: unset;
@@ -47,7 +101,7 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--fontPrimary)
+  color: var(--colorPrimary)
 }
 
 a:visited {
@@ -66,6 +120,7 @@ form {
   width: 300px;
   display: flex;
   flex-direction: column;
+  background: rgba(248, 248, 255, 0.5);
 }
 
 form label {
@@ -86,4 +141,16 @@ form button {
 
 .inactive {
   color: var(--colorInactive);
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
 }
