@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react';
+import { screen, render, waitFor } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
@@ -45,7 +45,7 @@ describe('IngredientList view', () => {
     afterEach(() => server.resetHandlers());
     afterAll(() => server.close());
 
-    it('Checks an ingredients upon click', async () => {
+    it('renders ingredients', async () => {
         render(
             <MemoryRouter>
                 <TeaProvider>
@@ -53,9 +53,10 @@ describe('IngredientList view', () => {
                 </TeaProvider>
             </MemoryRouter>
         );
+        waitFor(() => {
+            const base = screen.getByText('Oolong Tea', { exact: false });
+            expect(base).toBeInTheDocument();
+        });
 
-        const base = screen.getByText('Oolong Tea', { exact: false });
-        expect(base).toBeInTheDocument();
-        
     });
 });
