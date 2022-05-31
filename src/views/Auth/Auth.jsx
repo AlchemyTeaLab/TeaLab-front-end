@@ -25,7 +25,10 @@ export default function Auth() {
       const { message, user } = await authorizeUser(email, password, username);
       console.log('message', message);
 
-      if (message !== 'Successfully signed in!')
+      if (
+        message !== 'Successfully signed in!' &&
+        message !== 'Successfully, signed up!'
+      )
         throw new Error(`Oh no! ${message}...`);
 
       setEmail('');
