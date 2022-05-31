@@ -11,7 +11,6 @@ export default function Auth() {
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [error, setError] = useState('');
 
   const { from } = location.state || { from: { pathname: '/' } };
 
@@ -28,8 +27,8 @@ export default function Auth() {
       setUsername('');
 
       history.replace(from.pathname);
-    } catch (error) {
-      setError(error.message);
+    } catch (err) {
+      //
     }
   };
 

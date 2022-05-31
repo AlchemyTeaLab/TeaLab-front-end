@@ -1,4 +1,5 @@
 import { useContext } from 'react';
+import toast from 'react-hot-toast';
 import { authContext } from '../context/AuthProvider';
 import { signIn, signUp, signOut, getCurrentUser } from '../services/users';
 
@@ -28,31 +29,33 @@ export const useAuth = () => {
         const responseUser = await signUp(email, password, username);
         setUser(responseUser.user);
       }
-    } catch (error) {
-      console.error(error.message);
-      throw error;
+    } catch (err) {
+      //
+      toast.error(err.message);
+      throw err;
     }
-    
   };
 
   const setCurrentUser = async () => {
     try {
       const profile = await getCurrentUser();
       setProfile(profile.username);
-    } catch (error) {
-      console.error(error.message);
-      throw error;
+      toast(`hello ${profile.username}`, { icon: '👋' });
+    } catch (err) {
+      //
+      toast.error(err.message);
+      throw err;
     }
-    
   };
 
   const signOutUser = async () => {
     try {
       await signOut();
-    } catch (error) {
-      console.error(error);
+    } catch (err) {
+      //
+      toast.error(err.message);
+      throw err;
     }
-   
   };
 
   return {
