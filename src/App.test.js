@@ -66,7 +66,6 @@ describe('<App />', () => {
         
         const signUpButton = screen.getByRole('button', { name: /sign up/i });
         userEvent.click(signUpButton);
-        screen.debug();
     });  
 });
 
