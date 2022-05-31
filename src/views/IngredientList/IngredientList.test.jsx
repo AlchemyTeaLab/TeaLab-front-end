@@ -2,23 +2,24 @@ import { screen, render } from '@testing-library/react';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
-import Auth from './Auth';
+import IngredientList from './IngredientList';
 
 const server = setupServer(
-    rest.get(`${process.env.API_URL}/rest/v1/users`, (req, res, ctx) => res(ctx.json([user])))
+    rest.get(`${process.env.API_URL}/rest/v1/ingredients`, (req, res, ctx) => res(ctx.json([ingredients])))
 );
-  
-describe('Auth view', () => {
+
+describe('IngredientList view', () => {
     beforeAll(() => server.listen());
     afterEach(() => server.resetHandlers());
     afterAll(() => server.close());
 
-    it('Should sign up new user upon signup click'), async () => {
+    it('Checks an ingredients upon click', async () => {
         render(
             <MemoryRouter>
-                <Auth />
+                <IngredientList />
             </MemoryRouter>
         );
 
-    }
+
+    });
 });
