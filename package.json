@@ -69,6 +69,8 @@
   "dependencies": {
     "@cloudinary/react": "^1.4.1",
     "@cloudinary/url-gen": "^1.8.0",
+    "@emotion/react": "^11.9.0",
+    "@reactour/tour": "^2.10.3",
     "cloudinary-react": "^1.7.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
