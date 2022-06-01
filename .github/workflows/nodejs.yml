@@ -16,3 +16,5 @@ jobs:
       - run: npm test
         env:
           CI: true
+          DATABASE_URL: postgres://alchemy:alchemy@postgres:5432/alchemy
+          API_URL: ${{ secrets.API_URL }}

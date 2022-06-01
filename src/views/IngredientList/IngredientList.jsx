@@ -56,7 +56,7 @@ export default function IngredientList() {
     setType('');
     history.push('/profile');
   }
-
+  
   return (
     <>
       {/* <h2>List of Ingredients</h2> */}

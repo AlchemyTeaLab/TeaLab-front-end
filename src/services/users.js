@@ -35,6 +35,7 @@ export const signUp = async (email, password, username) => {
 export const getCurrentUser = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
+      headers: { 'Content-Type': 'application/json' },
       credentials: 'include',
     });
     return res.json();

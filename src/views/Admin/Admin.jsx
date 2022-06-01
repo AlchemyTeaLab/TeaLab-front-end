@@ -110,10 +110,12 @@ export default function Admin() {
             setImage(e.target.files[0]);
           }}
         />
-        <button>Submit</button>
+        <button type="button" onClick={uploadImg}>
+          Add an image
+        </button>
+        <button type="submit">Submit</button>
         <Image style={{ width: 220 }} cloudName="teaLab" publicId={publicId} />
       </form>
-      <button onClick={uploadImg}>Add an image</button>
     </>
   );
 }

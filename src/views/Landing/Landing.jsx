@@ -1,7 +1,13 @@
-import React from 'react'
+import React from 'react';
+import { useTour } from '@reactour/tour';
 
 export default function Landing() {
+  const { setIsOpen } = useTour();
+
   return (
-    <div>Landing</div>
+    <div>
+      <button onClick={() => setIsOpen(true)}>
+        Take a tour of TeaLab with ? as your guide!</button>
+    </div>
   )
 }
