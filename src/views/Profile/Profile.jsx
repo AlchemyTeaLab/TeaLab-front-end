@@ -8,7 +8,7 @@ export default function Profile() {
 
   useEffect(() => {
     const getData = async () => {
-      await getUserRecipes(user.id);
+      const recipes = await getUserRecipes(user.id);
     };
     getData();
   }, []);
