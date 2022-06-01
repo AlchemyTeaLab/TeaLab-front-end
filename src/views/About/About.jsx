@@ -24,12 +24,12 @@ export default function About() {
     </div><br/>
     <div>
       <h3>Ari Harlem-Caballero</h3>
-      <p>Bio: </p>
+      <p>Bio: Ari is a full-stack developer from Portland, OR. They've been a freelance artist in various mediums since graduating high school and hope to incorporate their creativity in the coding world.</p>
       <p>Favorite Tea: Sam's tears...</p>
       <p>Contact Info:</p>
       <a href='https://github.com/ari-harlem-caballero'>Github</a><br/>
       <a href='https://www.linkedin.com/in/ari-harlem-caballero/'>LinkedIn</a><br/>
-      <a href='ari.bash.harlem@gmail.com'>ari.bash.harlem@gmail.com</a>
+      <a href='ari.bash.harlem@gmail.com'>Email: ari.bash.harlem@gmail.com</a>
     </div><br/>
     <div>
       <h3>Alice Hsing</h3>
