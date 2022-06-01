@@ -52,14 +52,14 @@ export default function IngredientList() {
       recipe: { name: 'Recipe', userId: user.id, notes: '' },
       recipeItems,
     });
-    toast('Your recipe has been put on a shelf!');
+    toast('Your recipe has been put on the shelf!');
     setType('');
     history.push('/profile');
   }
 
   return (
     <>
-      <h2>List of Ingredients</h2>
+      {/* <h2>List of Ingredients</h2> */}
 
       {/* <input
                     placeholder="Search for a Ingredient"
@@ -85,12 +85,19 @@ export default function IngredientList() {
                   })}
               </ul>
               <button
+                title={
+                  !recipeItems.length
+                    ? 'Add a base to continue'
+                    : 'Add your base and continue to flavor'
+                }
+                disabled={!recipeItems.length}
+                className={styles.brew}
                 type="button"
                 onClick={() => {
                   setType('flavor');
                 }}
               >
-                ...Flavor? ➡️
+                Add Flavor
               </button>
             </section>
           )}
@@ -112,8 +119,13 @@ export default function IngredientList() {
                     );
                   })}
               </ul>
-              <button type="button" onClick={() => setType('boost')}>
-                ...Boost? ➡️
+              <button
+                title="Add your flavors and continue to boost"
+                className={styles.brew}
+                type="button"
+                onClick={() => setType('boost')}
+              >
+                Add Boost
               </button>
             </section>
           )}
@@ -135,7 +147,9 @@ export default function IngredientList() {
                     );
                   })}
               </ul>
-              <button className={styles.brew}>Brew!</button>
+              <button title="Brew your tea!" className={styles.brew}>
+                Brew!
+              </button>
             </section>
           )}
         </div>
