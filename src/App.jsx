@@ -15,7 +15,7 @@ export default function App() {
   <Loading />
     ) : (
     <>
-      <TourProvider steps={steps}>
+        <TourProvider steps={steps}>
           <Header />
           <Main />
           <Footer />
