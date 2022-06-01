@@ -4,6 +4,9 @@ import { MemoryRouter } from 'react-router-dom';
 import AuthProvider from './context/AuthProvider';
 import App from './App';
 import TeaProvider from './context/TeaProvider';
+import { rest } from 'msw';
+import { server } from './setupTests';
+import { mockSignInData, mockSignUpData } from './fixtures/mockAuthData';
 
 describe('<App />', () => {
     it('signs in a user', async () => {
@@ -27,11 +30,11 @@ describe('<App />', () => {
         userEvent.type(passInput, '123456');
         const form = screen.getByRole('form', {
             name: /sign in or sign up to continue/i
-          });
+        });
         
         const signInButton = within(form).getByRole('button', {
             name: /sign in/i
-          });
+        });
 
         userEvent.click(signInButton);
     });
@@ -56,7 +59,7 @@ describe('<App />', () => {
         userEvent.click(toggleSignUp);
         
         const usernameInput = screen.getByPlaceholderText(/username/i);
-        userEvent.type(usernameInput, 'test user');
+        userEvent.type(usernameInput, 'test_user');
         
         const emailInput = screen.getByPlaceholderText(/email/i);
         userEvent.type(emailInput, 'test@test.com');
