@@ -1,14 +1,17 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import RecipeItem from '../../components/RecipeItem/RecipeItem';
 import { useAuth } from '../../hooks/useAuth';
 import { useRecipes } from '../../hooks/useRecipes';
 export default function Profile() {
   const { user } = useAuth();
-  const { recipes, getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
+  const { getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
+
+  const [recipes, setRecipes] = useState([]);
 
   useEffect(() => {
     const getData = async () => {
-      const recipes = await getUserRecipes(user.id);
+      const fullRecipes = await getUserRecipes(user.id);
+      setRecipes(fullRecipes);
     };
     getData();
   }, []);

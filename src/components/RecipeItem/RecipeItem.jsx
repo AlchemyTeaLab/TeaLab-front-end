@@ -4,6 +4,7 @@ import styles from './RecipeItem.css';
 export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
   const [isEditing, setIsEditing] = useState(false);
 
+  console.log('RECIPE', recipe);
   let content;
   if (!isEditing) {
     content = (
@@ -19,7 +20,6 @@ export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
       </>
     );
   } else {
-    console.log('RECIPE', recipe);
     content = (
       <>
         <form>
