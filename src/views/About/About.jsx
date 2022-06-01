@@ -12,7 +12,7 @@ export default function About() {
       <a href='https://github.com/Sam-Melius'>https://github.com/Sam-Melius</a><br/>
       <a href='https://www.linkedin.com/in/sam-melius-oxford/'>https://www.linkedin.com/in/sam-melius-oxford/</a><br/>
       <a href='samsjmelius@gmail.com'>samsjmelius@gmail.com</a>
-    </div>
+    </div><br/>
     <div>
       <h3>Clare McDonald</h3>
       <p>Bio: </p>
@@ -21,7 +21,7 @@ export default function About() {
       <a href=''>Github: </a><br/>
       <a href=''>LinkedIn: </a><br/>
       <a href=''>Email: </a>
-    </div>
+    </div><br/>
     <div>
       <h3>Ari Harlem-Caballero</h3>
       <p>Bio: </p>
@@ -30,7 +30,7 @@ export default function About() {
       <a href=''>Github: </a><br/>
       <a href=''>LinkedIn: </a><br/>
       <a href=''>Email: </a>
-    </div>
+    </div><br/>
     <div>
       <h3>Alice Hsing</h3>
       <p>Bio: </p>
@@ -39,7 +39,7 @@ export default function About() {
       <a href=''>Github: </a><br/>
       <a href=''>LinkedIn: </a><br/>
       <a href=''>Email: </a>
-    </div>
+    </div><br/>
     <div>
       <h3>Ryan Flitcroft</h3>
       <p>Bio: </p>
