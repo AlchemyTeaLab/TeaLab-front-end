@@ -87,7 +87,9 @@ export default function IngredientList() {
               {(type === 'Base' || type === 'Flavor') && (
                 <button
                   title={
-                    !recipeItems.length
+                    !user.email
+                      ? 'Sign in to create a recipe!'
+                      : !recipeItems.length
                       ? `Add a ${type} to continue`
                       : `Add your ${type} and continue to flavor`
                   }

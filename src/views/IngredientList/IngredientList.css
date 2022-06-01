@@ -15,12 +15,23 @@ form.ingredients div section {
 
 h3 {
   display: inline;
+  font-size: 1.5em;
+  margin: 0;
 }
 
 button.brew {
   position: relative;
   left: 150px;  
 }
+
+button span.brew:hover {
+  transform: scale(1.1);
+}
+
+button span.brew:active {
+  transform: rotate(25deg);
+}
+
 
 button span.brew {
   background: url('https://res.cloudinary.com/tealab/image/upload/v1653969720/vector_assets/kettle_trans.svg') no-repeat top left;
