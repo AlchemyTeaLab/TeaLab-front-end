@@ -2,6 +2,7 @@ import { Link, useParams } from 'react-router-dom';
 import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
 import ReactDOM from 'react-dom';
+import IngredientList from '../IngredientList/IngredientList';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -11,7 +12,8 @@ const MODAL_STYLES = {
   transform: 'translate(-25%, -25%)',
   backgroundColor: 'lightblue',
   padding: '50px',
-  zIndex: 1000
+  zIndex: 1000,
+  
 }
 
 export default function IngredientDetail({ ingredient, open, onClose }) {
@@ -19,6 +21,7 @@ if (!open) return null;
   return ReactDOM.createPortal(
     <>
     <div style={MODAL_STYLES}>
+      <img src={ingredient.image} />
       <h3>Common Name: {ingredient.commonName}</h3>
       <p>Scientific Name: {ingredient.scientificName}</p>
       <p>Type: {ingredient.type}</p>
