@@ -4,13 +4,15 @@ import { useAuth } from '../../hooks/useAuth';
 import { useRecipes } from '../../hooks/useRecipes';
 export default function Profile() {
   const { user } = useAuth();
-  const { recipes, getUserRecipes } = useRecipes();
+  const { recipes, getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
+
   useEffect(() => {
     const getData = async () => {
       const recipes = await getUserRecipes(user.id);
     };
     getData();
   }, []);
+
   return (
     <>
       <div>Profile</div>
@@ -18,7 +20,11 @@ export default function Profile() {
         <ul>
           {recipes.map((recipe, i) => (
             <li key={`${recipe.id}-${i}`}>
-              <RecipeItem recipe={recipe} />
+              <RecipeItem
+                recipe={recipe}
+                updateRecipe={updateRecipe}
+                removeRecipe={removeRecipe}
+              />
             </li>
           ))}
         </ul>

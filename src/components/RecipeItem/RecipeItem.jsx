@@ -3,6 +3,7 @@ import styles from './RecipeItem.css';
 
 export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
   const [isEditing, setIsEditing] = useState(false);
+
   let content;
   if (!isEditing) {
     content = (
