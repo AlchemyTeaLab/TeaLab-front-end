@@ -38,7 +38,7 @@ export default function IngredientList() {
     e.preventDefault();
     await addRecipe({ name: '', user_id, notes });
   }
-
+  
   return (
     <>
       <h2>List of Ingredients</h2>

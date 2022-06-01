@@ -25,6 +25,7 @@ export default function IngredientItem({ ingredient }) {
       />
       <input
         type="checkbox"
+        aria-label="checkbox"
         value={ingredient.id}
         name={ingredient.commonName}
         //onChange={handleChange}
