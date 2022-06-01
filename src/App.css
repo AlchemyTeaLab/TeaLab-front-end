@@ -77,21 +77,19 @@ footer {
   background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
   background-repeat: no-repeat;
   background-position: center;
-  /* background-size: cover; */
-  z-index: 0;
+  /* z-index: 1; */
 }
 
 /* footer::after {
   content: '';
-  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653969720/vector_assets/kettle_trans.svg');
   position: absolute;
   background-repeat: no-repeat;
   background-size: 100% 150px;
   top: 0px;
   right: 0px;
-  bottom: 10px;
+  bottom: 0px;
   left: 0px;
-  z-index: -1;
 } */
 
 button {
@@ -110,17 +108,23 @@ a:visited {
 
 ul {
   padding: 0;
+  width: 100%;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  justify-content: center;
 }
 
 ul li {
   list-style-type: none;
+  display: inline;
+  margin: 1em;
 }
 
 form {
   width: 300px;
   display: flex;
   flex-direction: column;
-  background: rgba(248, 248, 255, 0.5);
 }
 
 form label {

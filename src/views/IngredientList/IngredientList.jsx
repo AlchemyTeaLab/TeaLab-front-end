@@ -4,12 +4,16 @@ import { useIngredients } from '../../hooks/useIngredients';
 import { useRecipes } from '../../hooks/useRecipes';
 import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
+import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function IngredientList() {
+  const history = useHistory();
   const { user } = useAuth();
   const { ingredients, getListIngredients } = useIngredients();
   const { addRecipe } = useRecipes();
   const [recipeItems, setRecipeItems] = useState([]);
+  const [type, setType] = useState('');
 
   //   const searching = !!search.length;
   //   const list = searching ? results : ingredients;
@@ -25,9 +29,15 @@ export default function IngredientList() {
     async function getIngredients() {
       await getListIngredients();
     }
-
     getIngredients();
+    setType('Base');
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      type && user.email && toast(`Choose your ${type}(s)...`);
+    }, 1500);
+  }, [type]);
 
   function handleChange(e) {
     const newRecipe = e.target.checked
@@ -42,11 +52,14 @@ export default function IngredientList() {
       recipe: { name: 'Recipe', userId: user.id, notes: '' },
       recipeItems,
     });
+    toast('Your recipe has been put on the shelf!');
+    setType('');
+    history.push('/profile');
   }
   
   return (
     <>
-      <h2>List of Ingredients</h2>
+      {/* <h2>List of Ingredients</h2> */}
 
       {/* <input
                     placeholder="Search for a Ingredient"
@@ -54,62 +67,50 @@ export default function IngredientList() {
                     onChange={(e) => {handleSearch(e)}} /> */}
       <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
-          <section>
-            <h3>Base</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Base')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
-
-          <section>
-            <h3>Flavor</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Flavor')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
-
-          <section>
-            <h3>Boost</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Boost')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
+          {type !== '' && (
+            <section>
+              <h3>{type}</h3>
+              <ul>
+                {ingredients
+                  .filter((i) => i.type === type)
+                  .map((ingredient, i) => {
+                    return (
+                      <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem
+                          ingredient={ingredient}
+                          handleChange={handleChange}
+                        />
+                      </li>
+                    );
+                  })}
+              </ul>
+              {(type === 'Base' || type === 'Flavor') && (
+                <button
+                  title={
+                    !recipeItems.length
+                      ? `Add a ${type} to continue`
+                      : `Add your ${type} and continue to flavor`
+                  }
+                  disabled={!recipeItems.length}
+                  className={styles.brew}
+                  type="button"
+                  onClick={() => {
+                    setType(type === 'Base' ? 'Flavor' : 'Boost');
+                  }}
+                >
+                  <span className={styles.brew}></span>
+                  {type === 'Base' ? 'Add Flavor' : 'Add Boost'}
+                </button>
+              )}
+              {type === 'Boost' && (
+                <button title="Brew your tea!" className={styles.brew}>
+                  <span className={styles.brew}></span>
+                  Brew!
+                </button>
+              )}
+            </section>
+          )}
         </div>
-
-        <button className={styles.brew}>Brew!</button>
       </form>
     </>
   );
