@@ -13,5 +13,19 @@ export default function Profile() {
     getData();
   }, []);
 
-  return <div>Profile</div>;
+  return (
+    <>
+      <div>Profile</div>
+      <section>
+        <ul>
+          {' '}
+          {recipes.map((recipe, i) => (
+            <li key={`${recipe.id}-${i}`}>
+              <RecipeItem recipe={recipe} />
+            </li>
+          ))}
+        </ul>
+      </section>
+    </>
+  );
 }
