@@ -11,13 +11,17 @@ export async function createRecipe({ recipe, ingredients }) {
 }
 
 export async function updateRecipeById(recipe) {
-  const res = await fetch(`${process.env.API_URL}/api/v1/recipes`, {
-    method: 'PATCH',
-    headers: { 'content-type': 'application/json' },
-    credentials: 'include',
-    mode: 'cors',
-    body: JSON.stringify(recipe),
-  });
+  console.log('service recipe', recipe);
+  const res = await fetch(
+    `${process.env.API_URL}/api/v1/recipes/${recipe.id}`,
+    {
+      method: 'PATCH',
+      headers: { 'content-type': 'application/json' },
+      credentials: 'include',
+      mode: 'cors',
+      body: JSON.stringify(recipe),
+    }
+  );
 
   return res.json();
 }

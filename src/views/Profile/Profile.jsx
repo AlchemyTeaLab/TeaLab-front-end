@@ -12,6 +12,8 @@ export default function Profile() {
     const getData = async () => {
       const fullRecipes = await getUserRecipes(user.id);
       setRecipes(fullRecipes);
+      console.log(fullRecipes);
+      console.log('full recipes', recipes);
     };
     getData();
   }, []);
@@ -21,7 +23,7 @@ export default function Profile() {
       <div>Profile</div>
       <section>
         <ul>
-          {recipes.map((recipe, i) => (
+          {/* {recipes.map((recipe, i) => (
             <li key={`${recipe.id}-${i}`}>
               <RecipeItem
                 recipe={recipe}
@@ -29,7 +31,7 @@ export default function Profile() {
                 removeRecipe={removeRecipe}
               />
             </li>
-          ))}
+          ))} */}
         </ul>
       </section>
     </>
