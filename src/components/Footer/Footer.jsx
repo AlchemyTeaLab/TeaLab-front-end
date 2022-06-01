@@ -7,6 +7,7 @@ export default function Footer() {
   const history = useHistory();
   const { pathname } = useLocation();
   const routes = [
+    // user?.email && { path: '/profile', name: 'Profile' },
     { path: '/ingredients', name: 'Home' },
     { path: '/about', name: 'About' },
   ];
