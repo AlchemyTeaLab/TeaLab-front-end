@@ -9,7 +9,7 @@ export default function IngredientItem({ ingredient, handleChange }) {
 
   return (
     <>
-      <label htmlFor={ingredient.commonName}>{ingredient.commonName}</label>
+      <label htmlFor={ingredient.commonName}><img src={ingredient.image} />{ingredient.commonName}</label>
       <button
         type="button"
         title="More info"
