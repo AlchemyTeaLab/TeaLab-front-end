@@ -30,7 +30,7 @@ export const useRecipes = () => {
       const updated = await updateRecipeById({ ...recipe });
       const payload = { ...updated };
 
-      setRecipe(payload);
+      // setRecipe(payload);
       recipeDispatch({ type: 'UPDATE', payload });
       return payload;
     } catch (error) {

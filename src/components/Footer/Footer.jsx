@@ -7,7 +7,6 @@ export default function Footer() {
   const history = useHistory();
   const { pathname } = useLocation();
   const routes = [
-    // user?.email && { path: '/profile', name: 'Profile' },
     { path: '/ingredients', name: 'Home' },
     { path: '/about', name: 'About' },
   ];
@@ -29,6 +28,16 @@ export default function Footer() {
       <footer>
         <nav>
           <ul>
+            {user?.email && user.email === 'admin@tealab.com' && (
+              <li>
+                <Link to="/admin">Admin</Link>
+              </li>
+            )}
+            {user?.email && (
+              <li>
+                <Link to="/profile">Profile</Link>
+              </li>
+            )}
             {routes.map(
               ({ name, path }, i) =>
                 pathname !== path && (

@@ -92,6 +92,7 @@ export default function IngredientList() {
                       : !recipeItems.length
                       ? `Add a ${type} to continue`
                       : `Add your ${type} and continue to flavor`
+                    //fixme
                   }
                   disabled={!recipeItems.length}
                   className={styles.brew}
