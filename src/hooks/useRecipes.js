@@ -18,8 +18,8 @@ export const useRecipes = () => {
 
   const [recipe, setRecipe] = useState(null);
 
-  const addRecipe = async (recipe) => {
-    const newRecipe = await createRecipe(recipe);
+  const addRecipe = async (recipe, ingredients) => {
+    const newRecipe = await createRecipe({ recipe, ingredients });
     recipeDispatch({ type: 'CREATE', payload: newRecipe });
   };
 

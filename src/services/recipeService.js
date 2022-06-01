@@ -1,4 +1,4 @@
-export async function createRecipe(recipe) {
+export async function createRecipe({ recipe, ingredients }) {
   const res = await fetch(`${process.env.API_URL}/api/v1/recipes`, {
     method: 'POST',
     headers: { 'content-type': 'application/json' },

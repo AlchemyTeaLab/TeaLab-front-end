@@ -2,14 +2,14 @@ import { useEffect, useState } from 'react';
 import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
 import { useRecipes } from '../../hooks/useRecipes';
+import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
 
 export default function IngredientList() {
+  const { user } = useAuth();
   const { ingredients, getListIngredients } = useIngredients();
   const { addRecipe } = useRecipes();
-  const [bases, setBases] = useState([]);
-  const [flavors, setFlavors] = useState([]);
-  const [boosts, setBoosts] = useState([]);
+  const [recipeItems, setRecipeItems] = useState([]);
 
   //   const searching = !!search.length;
   //   const list = searching ? results : ingredients;
@@ -30,13 +30,18 @@ export default function IngredientList() {
   }, []);
 
   function handleChange(e) {
-    e.target.checked && setBases([...bases, e.target.value]);
-    !e.target.checked && setBases(bases.filter((i) => i.id !== e.target.value));
+    const newRecipe = e.target.checked
+      ? [...recipeItems, e.target.value]
+      : recipeItems.filter((i) => i !== e.target.value);
+    setRecipeItems(newRecipe);
   }
 
-  async function handleBrew(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    await addRecipe({ name: '', user_id, notes });
+    await addRecipe({
+      recipe: { name: 'Recipe', userId: user.id, notes: '' },
+      recipeItems,
+    });
   }
   
   return (
@@ -47,7 +52,7 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-      <form className={styles.ingredients}>
+      <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
           <section>
             <h3>Base</h3>

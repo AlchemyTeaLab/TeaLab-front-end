@@ -3,7 +3,8 @@ import { Link } from 'react-router-dom';
 import IngredientDetail from '../../views/IngredientDetail/IngredientDetail';
 import { useState } from 'react';
 
-export default function IngredientItem({ ingredient }) {
+
+export default function IngredientItem({ ingredient, handleChange }) {
   const [openModal, setOpenModal] = useState(false);
 
   return (
@@ -28,7 +29,7 @@ export default function IngredientItem({ ingredient }) {
         aria-label="checkbox"
         value={ingredient.id}
         name={ingredient.commonName}
-        //onChange={handleChange}
+        onChange={handleChange}
       />
     </>
   );
