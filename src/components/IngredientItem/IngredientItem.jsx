@@ -1,7 +1,8 @@
 import { Link } from 'react-router-dom';
-import ReactModal from 'react-modal';
+// import ReactModal from 'react-modal';
 import IngredientDetail from '../../views/IngredientDetail/IngredientDetail';
 import { useState } from 'react';
+
 
 export default function IngredientItem({ ingredient, handleChange }) {
   const [openModal, setOpenModal] = useState(false);
