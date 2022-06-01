@@ -4,12 +4,16 @@ import { useIngredients } from '../../hooks/useIngredients';
 import { useRecipes } from '../../hooks/useRecipes';
 import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
+import { useHistory } from 'react-router-dom';
+import toast from 'react-hot-toast';
 
 export default function IngredientList() {
+  const history = useHistory();
   const { user } = useAuth();
   const { ingredients, getListIngredients } = useIngredients();
   const { addRecipe } = useRecipes();
   const [recipeItems, setRecipeItems] = useState([]);
+  const [type, setType] = useState('');
 
   //   const searching = !!search.length;
   //   const list = searching ? results : ingredients;
@@ -25,9 +29,15 @@ export default function IngredientList() {
     async function getIngredients() {
       await getListIngredients();
     }
-
     getIngredients();
+    setType('base');
   }, []);
+
+  useEffect(() => {
+    setTimeout(() => {
+      type && user.email && toast(`Choose your ${type}(s)...`);
+    }, 1500);
+  }, [type]);
 
   function handleChange(e) {
     const newRecipe = e.target.checked
@@ -42,6 +52,9 @@ export default function IngredientList() {
       recipe: { name: 'Recipe', userId: user.id, notes: '' },
       recipeItems,
     });
+    toast('Your recipe has been put on a shelf!');
+    setType('');
+    history.push('/profile');
   }
 
   return (
@@ -54,62 +67,78 @@ export default function IngredientList() {
                     onChange={(e) => {handleSearch(e)}} /> */}
       <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
-          <section>
-            <h3>Base</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Base')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
+          {type === 'base' && (
+            <section>
+              <h3>Base</h3>
+              <ul>
+                {ingredients
+                  .filter((i) => i.type === 'Base')
+                  .map((ingredient, i) => {
+                    return (
+                      <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem
+                          ingredient={ingredient}
+                          handleChange={handleChange}
+                        />
+                      </li>
+                    );
+                  })}
+              </ul>
+              <button
+                type="button"
+                onClick={() => {
+                  setType('flavor');
+                }}
+              >
+                ...Flavor? ➡️
+              </button>
+            </section>
+          )}
 
-          <section>
-            <h3>Flavor</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Flavor')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
+          {type === 'flavor' && (
+            <section>
+              <h3>Flavor</h3>
+              <ul>
+                {ingredients
+                  .filter((i) => i.type === 'Flavor')
+                  .map((ingredient, i) => {
+                    return (
+                      <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem
+                          ingredient={ingredient}
+                          handleChange={handleChange}
+                        />
+                      </li>
+                    );
+                  })}
+              </ul>
+              <button type="button" onClick={() => setType('boost')}>
+                ...Boost? ➡️
+              </button>
+            </section>
+          )}
 
-          <section>
-            <h3>Boost</h3>
-            <ul>
-              {ingredients
-                .filter((i) => i.type === 'Boost')
-                .map((ingredient, i) => {
-                  return (
-                    <li key={`${ingredient.id} - ${i}`}>
-                      <IngredientItem
-                        ingredient={ingredient}
-                        handleChange={handleChange}
-                      />
-                    </li>
-                  );
-                })}
-            </ul>
-          </section>
+          {type === 'boost' && (
+            <section>
+              <h3>Boost</h3>
+              <ul>
+                {ingredients
+                  .filter((i) => i.type === 'Boost')
+                  .map((ingredient, i) => {
+                    return (
+                      <li key={`${ingredient.id} - ${i}`}>
+                        <IngredientItem
+                          ingredient={ingredient}
+                          handleChange={handleChange}
+                        />
+                      </li>
+                    );
+                  })}
+              </ul>
+              <button className={styles.brew}>Brew!</button>
+            </section>
+          )}
         </div>
-
-        <button className={styles.brew}>Brew!</button>
       </form>
     </>
   );
