@@ -23,7 +23,7 @@ export default function IngredientItem({ ingredient, handleChange }) {
               setOpenModal(true);
             }}
           >
-            ❔
+            <span className={styles.detail}></span>
           </button>
         </span>
         <input

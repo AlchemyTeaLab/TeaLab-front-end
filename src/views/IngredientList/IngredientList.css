@@ -6,11 +6,11 @@ form.ingredients div section {
   height: 100%;
   width: 500px;
   overflow-y: scroll;
+  scroll-behavior: smooth;
   background: rgba(248, 248, 255, 0.5);
   border: 5px solid ghostwhite;
   border-radius: 50px;
   padding: 1em;
-  
 }
 
 h3 {
@@ -19,7 +19,16 @@ h3 {
 
 button.brew {
   position: relative;
-  left: 150px;
+  left: 150px;  
+}
+
+button span.brew {
+  background: url('https://res.cloudinary.com/tealab/image/upload/v1653969720/vector_assets/kettle_trans.svg') no-repeat top left;
+  background-size: contain;
+  cursor: pointer;
+  display: block;
+  width: 50px;
+  height: 50px;
 }
 
 button:disabled {

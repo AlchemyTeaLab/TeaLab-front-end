@@ -30,7 +30,7 @@ export default function IngredientList() {
       await getListIngredients();
     }
     getIngredients();
-    setType('base');
+    setType('Base');
   }, []);
 
   useEffect(() => {
@@ -67,12 +67,12 @@ export default function IngredientList() {
                     onChange={(e) => {handleSearch(e)}} /> */}
       <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
-          {type === 'base' && (
+          {type !== '' && (
             <section>
-              <h3>Base</h3>
+              <h3>{type}</h3>
               <ul>
                 {ingredients
-                  .filter((i) => i.type === 'Base')
+                  .filter((i) => i.type === type)
                   .map((ingredient, i) => {
                     return (
                       <li key={`${ingredient.id} - ${i}`}>
@@ -84,72 +84,30 @@ export default function IngredientList() {
                     );
                   })}
               </ul>
-              <button
-                title={
-                  !recipeItems.length
-                    ? 'Add a base to continue'
-                    : 'Add your base and continue to flavor'
-                }
-                disabled={!recipeItems.length}
-                className={styles.brew}
-                type="button"
-                onClick={() => {
-                  setType('flavor');
-                }}
-              >
-                Add Flavor
-              </button>
-            </section>
-          )}
-
-          {type === 'flavor' && (
-            <section>
-              <h3>Flavor</h3>
-              <ul>
-                {ingredients
-                  .filter((i) => i.type === 'Flavor')
-                  .map((ingredient, i) => {
-                    return (
-                      <li key={`${ingredient.id} - ${i}`}>
-                        <IngredientItem
-                          ingredient={ingredient}
-                          handleChange={handleChange}
-                        />
-                      </li>
-                    );
-                  })}
-              </ul>
-              <button
-                title="Add your flavors and continue to boost"
-                className={styles.brew}
-                type="button"
-                onClick={() => setType('boost')}
-              >
-                Add Boost
-              </button>
-            </section>
-          )}
-
-          {type === 'boost' && (
-            <section>
-              <h3>Boost</h3>
-              <ul>
-                {ingredients
-                  .filter((i) => i.type === 'Boost')
-                  .map((ingredient, i) => {
-                    return (
-                      <li key={`${ingredient.id} - ${i}`}>
-                        <IngredientItem
-                          ingredient={ingredient}
-                          handleChange={handleChange}
-                        />
-                      </li>
-                    );
-                  })}
-              </ul>
-              <button title="Brew your tea!" className={styles.brew}>
-                Brew!
-              </button>
+              {(type === 'Base' || type === 'Flavor') && (
+                <button
+                  title={
+                    !recipeItems.length
+                      ? `Add a ${type} to continue`
+                      : `Add your ${type} and continue to flavor`
+                  }
+                  disabled={!recipeItems.length}
+                  className={styles.brew}
+                  type="button"
+                  onClick={() => {
+                    setType(type === 'Base' ? 'Flavor' : 'Boost');
+                  }}
+                >
+                  <span className={styles.brew}></span>
+                  {type === 'Base' ? 'Add Flavor' : 'Add Boost'}
+                </button>
+              )}
+              {type === 'Boost' && (
+                <button title="Brew your tea!" className={styles.brew}>
+                  <span className={styles.brew}></span>
+                  Brew!
+                </button>
+              )}
             </section>
           )}
         </div>

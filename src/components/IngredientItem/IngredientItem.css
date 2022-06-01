@@ -11,3 +11,12 @@ button.detail {
   padding: 3px;
   margin: 0 3px;
 }
+
+span.detail {
+  background: url('https://res.cloudinary.com/tealab/image/upload/v1654062220/info_tag_trans.png') no-repeat top left;
+  background-size: contain;
+  cursor: pointer;
+  display: block;
+  width: 20px;
+  height: 20px;
+}
