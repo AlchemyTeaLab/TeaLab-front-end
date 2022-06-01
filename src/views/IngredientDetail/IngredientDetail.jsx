@@ -1,4 +1,5 @@
 import ReactDOM from 'react-dom';
+import IngredientList from '../IngredientList/IngredientList';
 
 const MODAL_STYLES = {
   position: 'fixed',
@@ -22,8 +23,8 @@ export default function IngredientDetail({ ingredient, open, onClose }) {
         <p>Health Benefits: {ingredient.healthBenefits}</p>
         <p>Description: {ingredient.description}</p>
         <button type="button" onClick={onClose}>
-          {' '}
-          ❌{' '}
+          
+          ❌
         </button>
       </div>
     </>,

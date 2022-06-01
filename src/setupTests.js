@@ -8,8 +8,8 @@ import { mockSignUpData, mockSignInData, mockUserData } from './fixtures/mockAut
 const server = setupServer(
     rest.post(`${process.env.API_URL}/api/v1/users`, (req, res, ctx) => res(ctx.json(mockSignUpData)) ),
     rest.post(`${process.env.API_URL}/api/v1/users/session`, (req, res, ctx) => res(ctx.json(mockSignInData))),
-    rest.get(`${process.env.API_URL}/api/v1/users/me`, (req, res,ctx) => ctx.json(mockUserData))
-
+    rest.get(`${process.env.API_URL}/api/v1/users/me`, (req, res,ctx) => ctx.json(mockUserData)),
+    rest.delete(`${process.env.API_URL}/api/v1/users/session`, (req, res, ctx) => res(ctx.json({ message: 'Successfully signed out!' }))),
 );
 
 beforeAll(() => server.listen());
