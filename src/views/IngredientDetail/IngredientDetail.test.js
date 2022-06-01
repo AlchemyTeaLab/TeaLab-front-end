@@ -5,7 +5,7 @@ import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
 import AuthProvider from '../../context/AuthProvider';
 import TeaProvider from '../../context/TeaProvider';
-import IngredientList from './IngredientList';
+import IngredientList from '../IngredientList/IngredientList';
 
 
 const ingredients = [
@@ -62,10 +62,11 @@ describe('IngredientList view', () => {
             const base = screen.getByText('Oolong Tea', { exact: false });
             expect(base).toBeInTheDocument();
 
-            const checkbox = screen.getByLabelText('checkbox');
-            userEvent.click(checkbox);
+            const infoButton = screen.getByRole('button');
+            userEvent.click(infoButton);
+            const scientificDescription = screen.getByText('Camellia sinensis');
+            expect(scientificDescription).toBeInTheDocument();
 
-            expect(checkbox).toBeChecked();
         });
     });
 });

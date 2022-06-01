@@ -18,13 +18,13 @@ body {
   --colorSecondary: #3d3d3d;
   --colorTertiary: ;
   
-  --colorSuccess: ;
+  --colorSuccess: #677d0d;
   --colorWarning: ;
   --colorActive: dodgerBlue;
   --colorInactive: #d3d3d3;
 
   font-family: var(--fontHeading);
-  color: var(--fontPrimary);
+  color: var(--colorPrimary);
   font-weight: 400;
   font-style: normal;
   background: linear-gradient(-45deg, #f0ddcb77, #d8c6b677, #d5cec877, #dcdad977);
@@ -74,23 +74,10 @@ footer {
   justify-content: flex-end;
   align-items: flex-end;
   padding: 1em 2em;
-  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653978032/vector_assets/table.svg');
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1654101367/vector_assets/table.svg');
   background-repeat: no-repeat;
   background-position: center;
-  /* z-index: 1; */
 }
-
-/* footer::after {
-  content: '';
-  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1653969720/vector_assets/kettle_trans.svg');
-  position: absolute;
-  background-repeat: no-repeat;
-  background-size: 100% 150px;
-  top: 0px;
-  right: 0px;
-  bottom: 0px;
-  left: 0px;
-} */
 
 button {
   all: unset;

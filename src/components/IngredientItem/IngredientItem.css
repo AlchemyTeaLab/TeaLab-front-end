@@ -13,10 +13,18 @@ button.detail {
 }
 
 span.detail {
-  background: url('https://res.cloudinary.com/tealab/image/upload/v1654062220/info_tag_trans.png') no-repeat top left;
+  background: url('https://res.cloudinary.com/tealab/image/upload/v1654101366/vector_assets/infoTag.svg') no-repeat top left;
   background-size: contain;
   cursor: pointer;
   display: block;
   width: 20px;
   height: 20px;
+}
+
+span.detail:hover {
+  transform: scale(1.1);
+}
+
+span.detail:active {
+  transform: rotate(25deg);
 }
