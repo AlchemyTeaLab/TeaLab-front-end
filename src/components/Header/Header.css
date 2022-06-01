@@ -13,5 +13,4 @@ h1::after {
 
 span.username {
   font-weight: bold;
-  color: var(--colorActive)
 }
