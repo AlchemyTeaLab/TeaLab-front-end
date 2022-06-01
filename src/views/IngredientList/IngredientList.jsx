@@ -2,9 +2,11 @@ import { useEffect, useState } from 'react';
 import IngredientItem from '../../components/IngredientItem/IngredientItem';
 import { useIngredients } from '../../hooks/useIngredients';
 import { useRecipes } from '../../hooks/useRecipes';
+import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
 
 export default function IngredientList() {
+  const { user } = useAuth();
   const { ingredients, getListIngredients } = useIngredients();
   const { addRecipe } = useRecipes();
   const [recipeItems, setRecipeItems] = useState([]);
@@ -34,9 +36,12 @@ export default function IngredientList() {
     setRecipeItems(newRecipe);
   }
 
-  async function handleBrew(e) {
+  async function handleSubmit(e) {
     e.preventDefault();
-    await addRecipe({ name: '', user_id, notes });
+    await addRecipe({
+      recipe: { name: 'Recipe', userId: user.id, notes: '' },
+      recipeItems,
+    });
   }
 
   return (
@@ -47,7 +52,7 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-      <form className={styles.ingredients}>
+      <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
           <section>
             <h3>Base</h3>
