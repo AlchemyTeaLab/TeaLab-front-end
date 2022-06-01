@@ -3,6 +3,7 @@ import userEvent from '@testing-library/user-event';
 import { rest } from 'msw';
 import { setupServer } from 'msw/node';
 import { MemoryRouter } from 'react-router-dom';
+import AuthProvider from '../../context/AuthProvider';
 import TeaProvider from '../../context/TeaProvider';
 import IngredientList from './IngredientList';
 
@@ -49,9 +50,11 @@ describe('IngredientList view', () => {
     it('renders ingredients', async () => {
         render(
             <MemoryRouter>
-                <TeaProvider>
-                    <IngredientList />
-                </TeaProvider>
+                <AuthProvider>
+                    <TeaProvider>
+                        <IngredientList />
+                    </TeaProvider>
+                </AuthProvider>
             </MemoryRouter>
         );
 
