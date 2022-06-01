@@ -6,7 +6,7 @@ const steps = [
       content: (
         <>
           <div>
-            <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`} >This is my first Step!</p>
+            <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`} >Thanks for joining me on our tour of TeaLab! Time to explore.</p>
             <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
           </div>
         </>),
