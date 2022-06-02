@@ -5,7 +5,6 @@ import { useRecipes } from '../../hooks/useRecipes';
 export default function Profile() {
   const { user } = useAuth();
   const { getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
-
   const [recipes, setRecipes] = useState([]);
 
   const loadRecipe = async () => {
@@ -31,8 +30,8 @@ export default function Profile() {
             <li key={`${recipe.id}-${i}`}>
               <RecipeItem
                 recipe={recipe}
-                updateRecipe={updateRecipe}
-                removeRecipe={removeRecipe}
+                // updateRecipe={updateRecipe}
+                // removeRecipe={removeRecipe}
                 loadRecipe={loadRecipe}
               />
             </li>

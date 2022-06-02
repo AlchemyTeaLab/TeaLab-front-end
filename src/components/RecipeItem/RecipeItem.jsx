@@ -1,14 +1,16 @@
 import { useState } from 'react';
 import styles from './RecipeItem.css';
+import { useRecipes } from '../../hooks/useRecipes';
 
 export default function RecipeItem({
   recipe,
-  updateRecipe,
-  removeRecipe,
+  // updateRecipe,
+  // removeRecipe,
   loadRecipe,
 }) {
   const [isEditing, setIsEditing] = useState(false);
   const [recipeNotes, setRecipeNotes] = useState(recipe.notes);
+  const { updateRecipe, removeRecipe } = useRecipes();
 
   console.log('recipe item', recipe);
 
@@ -24,15 +26,20 @@ export default function RecipeItem({
     setIsEditing(false);
   };
 
+  const handleDelete = async () => {
+    console.log('handleDelete', recipe.id);
+    await removeRecipe(recipe.id);
+  };
+
   let content;
   if (!isEditing) {
     content = (
       <>
         <section>
           {recipe.name}
-          {recipe.ingredients.map((ingredient) => {
+          {recipe.ingredients.map((ingredient, i) => {
             return (
-              <figure>
+              <figure key={`${ingredient.id}-${i}`}>
                 <img src={ingredient.image} alt={ingredient.common_name} />
                 <figcaption>{ingredient.common_name}</figcaption>
               </figure>
@@ -70,7 +77,11 @@ export default function RecipeItem({
           <button type="submit" aria-label="Save changes">
             Save
           </button>
-          <button type="button" onClick={() => setIsEditing(true)}>
+          <button
+            type="button"
+            aria-label="Delete recipe"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </form>
