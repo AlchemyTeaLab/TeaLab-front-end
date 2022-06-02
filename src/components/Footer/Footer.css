@@ -1,0 +1,12 @@
+footer nav ul {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  overflow: hidden;
+}
+
+
+footer nav ul li {
+  display: inline;
+  margin: 0 0.5em;
+}
