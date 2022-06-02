@@ -62,7 +62,7 @@ describe('IngredientList view', () => {
             const base = screen.getByText('Oolong Tea', { exact: false });
             expect(base).toBeInTheDocument();
 
-            const infoButton = screen.getByRole('button');
+            const infoButton = container.querySelector('#root > main > form > div > section > ul > li:nth-child(1) > label > span > button > span')
             userEvent.click(infoButton);
             const scientificDescription = screen.getByText('Camellia sinensis');
             expect(scientificDescription).toBeInTheDocument();
