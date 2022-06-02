@@ -27,12 +27,13 @@ export async function updateRecipeById(recipe) {
 }
 
 export async function removeRecipeById(id) {
-  const res = await fetch(`${process.env.API_URL}/api/v1/recipes`, {
+  console.log('id', id);
+  const res = await fetch(`${process.env.API_URL}/api/v1/recipes/${id}`, {
     method: 'DELETE',
     headers: { 'content-type': 'application/json' },
     credentials: 'include',
     mode: 'cors',
-    body: JSON.stringify(recipe),
+    // body: JSON.stringify(recipe),
   });
 
   return res.json();

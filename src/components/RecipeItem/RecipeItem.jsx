@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import styles from './RecipeItem.css';
+import { useRecipes } from '../../hooks/useRecipes';
 
-export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
+export default function RecipeItem({
+  recipe,
+  // updateRecipe,
+  // removeRecipe,
+  loadRecipe,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [recipeNotes, setRecipeNotes] = useState(recipe.notes);
+  const { updateRecipe, removeRecipe } = useRecipes();
 
   console.log('recipe item', recipe);
 
@@ -15,13 +22,32 @@ export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
       userId: recipe.user_id,
       notes: recipeNotes,
     });
+    await loadRecipe();
     setIsEditing(false);
+  };
+
+  const handleDelete = async () => {
+    console.log('handleDelete', recipe.id);
+    await removeRecipe(recipe.id);
   };
 
   let content;
   if (!isEditing) {
     content = (
       <>
+        <section>
+          {recipe.name}
+          {recipe.ingredients.map((ingredient, i) => {
+            return (
+              <figure key={`${ingredient.id}-${i}`}>
+                <img src={ingredient.image} alt={ingredient.common_name} />
+                <figcaption>{ingredient.common_name}</figcaption>
+              </figure>
+            );
+          })}
+          <label>Notes</label>
+          <p>{recipe.notes}</p>
+        </section>
         <div className={styles.buttons}>
           <button type="button" onClick={() => setIsEditing(true)}>
             Edit
@@ -51,7 +77,11 @@ export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
           <button type="submit" aria-label="Save changes">
             Save
           </button>
-          <button type="button" onClick={() => setIsEditing(true)}>
+          <button
+            type="button"
+            aria-label="Delete recipe"
+            onClick={handleDelete}
+          >
             Delete
           </button>
         </form>
