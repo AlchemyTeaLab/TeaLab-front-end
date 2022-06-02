@@ -56,7 +56,7 @@ export default function IngredientList() {
     setType('');
     history.push('/profile');
   }
-  
+
   return (
     <>
       {/* <h2>List of Ingredients</h2> */}
@@ -89,10 +89,13 @@ export default function IngredientList() {
                   title={
                     !user.email
                       ? 'Sign in to create a recipe!'
-                      : !recipeItems.length
+                      : user.email && !recipeItems.length
                       ? `Add a ${type} to continue`
-                      : `Add your ${type} and continue to flavor`
-                    //fixme
+                      : user.email && type === 'Base'
+                      ? `Add your ${type} and continue to flavor`
+                      : user.email && type === 'Flavor'
+                      ? `Add your ${type} and continue to boost`
+                      : null
                   }
                   disabled={!recipeItems.length}
                   className={styles.brew}
@@ -102,7 +105,7 @@ export default function IngredientList() {
                   }}
                 >
                   <span className={styles.brew}></span>
-                  {type === 'Base' ? 'Add Flavor' : 'Add Boost'}
+                  {type === 'Base' ? 'Flavor...' : 'Boost...'}
                 </button>
               )}
               {type === 'Boost' && (
