@@ -60,13 +60,23 @@ export default function getSteps(redirectFunction) {
         content: (
           <>
             <div>
-              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>The kettle is the button you click to move on to the next ingredient type, and to brew your tea when you're done, woof.</p>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Click on the tea tag to learn more about an ingredient, woof.</p>
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
       },
       {
         selector: '.seventh-step',
+        content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>The kettle is the button you click to move on to the next ingredient type, and to brew your tea when you're done, woof.</p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+      },
+      {
+        selector: '.eighth-step',
         content: (
           <>
             <div>
