@@ -12,6 +12,7 @@ export default function getSteps(redirectFunction) {
             <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
           </div>
         </>),
+      disableActions: false,
       },
       { 
         selector: '.second-step',
@@ -23,6 +24,7 @@ export default function getSteps(redirectFunction) {
             </div>
           </>),
         action: () => { redirectFunction('/login') },
+        disableActions: false,
       },
       {
         selector: '.third-step',
@@ -33,6 +35,7 @@ export default function getSteps(redirectFunction) {
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
+        disableActions: true,
         },
         {
         selector: '.forth-step',
