@@ -103,9 +103,7 @@ export default function Admin() {
         <label htmlFor="image">Image</label>
         <input
           type="file"
-          // except="image/ *"
           name="image"
-          // value={image}
           onChange={(e) => {
             setImage(e.target.files[0]);
           }}

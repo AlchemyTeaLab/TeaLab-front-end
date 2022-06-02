@@ -10,7 +10,6 @@ export default function Auth() {
   const location = useLocation();
   const history = useHistory();
   const { setDisabledActions, setCurrentStep } = useTour();
-
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');

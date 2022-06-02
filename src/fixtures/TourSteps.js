@@ -1,6 +1,5 @@
 import styles from './TourSteps.css';
 
-
 export default function getSteps(redirectFunction) {
   const steps = [
       {

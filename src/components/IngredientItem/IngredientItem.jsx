@@ -1,10 +1,8 @@
 import { Link } from 'react-router-dom';
-// import ReactModal from 'react-modal';
 import IngredientDetail from '../../views/IngredientDetail/IngredientDetail';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientItem.css';
-
 
 export default function IngredientItem({ ingredient, handleChange }) {
   const { user } = useAuth();

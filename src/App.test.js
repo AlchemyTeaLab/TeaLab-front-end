@@ -6,15 +6,10 @@ import { setupServer } from 'msw/node';
 import AuthProvider from './context/AuthProvider';
 import App from './App';
 import TeaProvider from './context/TeaProvider';
-//import { rest } from 'msw';
 import { server } from './setupTests';
 import { mockSignInData, mockSignUpData } from './fixtures/mockAuthData';
 
 const user = { username: 'Test', email: 'test@email.com', password: 'supersecret' };
-
-// const server = setupServer(
-//     rest.post(`${process.env.API_URL}/api/v1/users`, (req, res, ctx) => res(ctx.json(user)))
-// );
 
 describe('<App />', () => {
     it('signs in a user', async () => {
