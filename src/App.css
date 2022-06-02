@@ -18,6 +18,7 @@ body {
   --color3: #677d0d33;
   --color4: #677d0d55;
   --color5: #677d0d;
+  --color6: #62496e;
   --colorInactive: #d3d3d3;
 
   font-family: var(--fontHeading);
@@ -66,7 +67,6 @@ main {
   overflow-y: hidden;
   z-index: 1;
   background: linear-gradient(-45deg, #f0ddcb77, #d8c6b677, #d5cec877, #dcdad977);
-	background-size: 400% 800%;
 	animation: gradient 15s ease infinite;
   padding: 1em;
 }
@@ -82,12 +82,14 @@ footer {
 button {
   all: unset;
   cursor: pointer;
+  color: var(--color6);
 }
 
 a {
   text-decoration: none;
-  color: var(--color1);
+  color: var(--color6);
   font-weight: bold;
+
 }
 
 a, 

@@ -99,6 +99,11 @@ export default function Auth() {
         />
         <button>{!newUser ? 'Sign in' : 'Sign up'}</button>
       </form>
+      <img
+        className={styles.table}
+        src="https://res.cloudinary.com/tealab/image/upload/v1654101367/vector_assets/table.svg"
+        alt="a table with plants and herbs on top"
+      />
     </>
   );
 }
