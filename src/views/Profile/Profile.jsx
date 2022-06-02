@@ -8,12 +8,16 @@ export default function Profile() {
 
   const [recipes, setRecipes] = useState([]);
 
+  const loadRecipe = async () => {
+    const fullRecipes = await getUserRecipes(user.id);
+    setRecipes(fullRecipes);
+    console.log(fullRecipes);
+    console.log('full recipes', recipes);
+  };
+
   useEffect(() => {
     const getData = async () => {
-      const fullRecipes = await getUserRecipes(user.id);
-      setRecipes(fullRecipes);
-      console.log(fullRecipes);
-      console.log('full recipes', recipes);
+      await loadRecipe();
     };
     getData();
   }, []);
@@ -23,15 +27,16 @@ export default function Profile() {
       <div>Profile</div>
       <section>
         <ul>
-          {/* {recipes.map((recipe, i) => (
+          {recipes.map((recipe, i) => (
             <li key={`${recipe.id}-${i}`}>
               <RecipeItem
                 recipe={recipe}
                 updateRecipe={updateRecipe}
                 removeRecipe={removeRecipe}
+                loadRecipe={loadRecipe}
               />
             </li>
-          ))} */}
+          ))}
         </ul>
       </section>
     </>

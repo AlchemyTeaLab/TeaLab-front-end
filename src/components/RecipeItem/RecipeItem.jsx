@@ -1,7 +1,12 @@
 import { useState } from 'react';
 import styles from './RecipeItem.css';
 
-export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
+export default function RecipeItem({
+  recipe,
+  updateRecipe,
+  removeRecipe,
+  loadRecipe,
+}) {
   const [isEditing, setIsEditing] = useState(false);
   const [recipeNotes, setRecipeNotes] = useState(recipe.notes);
 
@@ -15,6 +20,7 @@ export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
       userId: recipe.user_id,
       notes: recipeNotes,
     });
+    await loadRecipe();
     setIsEditing(false);
   };
 
@@ -22,6 +28,19 @@ export default function RecipeItem({ recipe, updateRecipe, removeRecipe }) {
   if (!isEditing) {
     content = (
       <>
+        <section>
+          {recipe.name}
+          {recipe.ingredients.map((ingredient) => {
+            return (
+              <figure>
+                <img src={ingredient.image} alt={ingredient.common_name} />
+                <figcaption>{ingredient.common_name}</figcaption>
+              </figure>
+            );
+          })}
+          <label>Notes</label>
+          <p>{recipe.notes}</p>
+        </section>
         <div className={styles.buttons}>
           <button type="button" onClick={() => setIsEditing(true)}>
             Edit
