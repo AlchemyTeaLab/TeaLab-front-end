@@ -1,0 +1,24 @@
+section.profile ul {
+  height: 100%;
+  width: 1000px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-wrap: wrap;
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  background: rgba(248, 248, 255, 0.5);
+  border: 5px solid ghostwhite;
+}
+
+li.recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+li.recipe figure { 
+  width: 100px;
+  display: inline-block;
+  margin: 0;
+}

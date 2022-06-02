@@ -2,6 +2,8 @@ import React, { useEffect, useState } from 'react';
 import RecipeItem from '../../components/RecipeItem/RecipeItem';
 import { useAuth } from '../../hooks/useAuth';
 import { useRecipes } from '../../hooks/useRecipes';
+import styles from './Profile.css';
+
 export default function Profile() {
   const { user } = useAuth();
   const { getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
@@ -22,7 +24,7 @@ export default function Profile() {
   let content;
   if (recipes.length > 0) {
     content = recipes.map((recipe, i) => (
-      <li key={`${recipe.id}-${i}`}>
+      <li key={`${recipe.id}-${i}`} className={styles.recipe}>
         <RecipeItem recipe={recipe} loadRecipe={loadRecipes} />
       </li>
     ));
@@ -33,7 +35,7 @@ export default function Profile() {
   return (
     <>
       <div>Profile</div>
-      <section>
+      <section className={styles.profile}>
         <ul className={`${'ninth-step'} ${'tenth-step'}`}>{content}</ul>
       </section>
     </>

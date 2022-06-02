@@ -30,8 +30,8 @@ export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
   if (!isEditing) {
     content = (
       <>
-        <section>
-          {recipe.name}
+        <h3>{recipe.name} </h3>
+        <div>
           {recipe.ingredients.map((ingredient, i) => {
             return (
               <figure key={`${ingredient.id}-${i}`}>
@@ -40,12 +40,11 @@ export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
               </figure>
             );
           })}
-          <label>Notes</label>
-          <p>{recipe.notes}</p>
-        </section>
+        </div>
+        <p>{recipe.notes || null}</p>
         <div className={styles.buttons}>
           <button type="button" onClick={() => setIsEditing(true)}>
-            Edit
+            {recipe.notes ? 'Edit Notes' : 'Add Notes'}
           </button>
         </div>
       </>

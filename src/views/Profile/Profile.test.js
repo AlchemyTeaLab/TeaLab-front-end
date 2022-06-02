@@ -10,7 +10,11 @@ import TeaProvider from '../../context/TeaProvider';
 import { mockSignInData, mockSignUpData } from '../../fixtures/mockAuthData';
 import IngredientList from '../IngredientList/IngredientList';
 
-const user = { username: 'Test', email: 'test@email.com', password: 'supersecret' };
+const user = {
+  username: 'Test',
+  email: 'test@email.com',
+  password: 'supersecret',
+};
 
 const server = setupServer(
     rest.post(`${process.env.API_URL}/api/v1/users`, (req, res, ctx) => res(ctx.json(mockSignUpData)) )
