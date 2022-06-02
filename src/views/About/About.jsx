@@ -9,7 +9,7 @@ export default function About() {
       <section className={styles.about}>
         <article>
           <h3>Sam Melius Oxford</h3>
-          <p>Bio: Full-stack software developer based out of Mesa, Az.</p>
+          <p>Bio: Sam is a full-stack software developer based out of Mesa, Az. He has a background in Aerospace which has helped to fully develop excellent problem solving abilities. Sam Looks forward to collaborating on future software projects.</p>
           <p>Favorite Tea: Arnold Palmer...</p>
           <p>Contact Info:</p>
           <NavLink to="https://github.com/Sam-Melius">Github</NavLink>
