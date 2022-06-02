@@ -1,4 +1,4 @@
-import React from 'react'
+import React from 'react';
 
 export default function About() {
   return (
@@ -32,23 +32,32 @@ export default function About() {
       <a href='ari.bash.harlem@gmail.com'>Email: ari.bash.harlem@gmail.com</a>
     </div><br/>
     <div>
-      <h3>Alice Hsing</h3>
-      <p>Bio: </p>
-      <p>Favorite Tea: The hopes and dreams of children</p>
-      <p>Contact Info:</p>
-      <a href='https://github.com/alicehsing'>Github</a><br/>
-      <a href='https://www.linkedin.com/in/alice-hsing-94603315/'>LinkedIn</a><br/>
-      <a href=''>Email: </a>
-    </div><br/>
-    <div>
-      <h3>Ryan Flitcroft</h3>
-      <p>Bio: </p>
-      <p>Favorite Tea: Just Tea</p>
-      <p>Contact Info:</p>
-      <a href='https://github.com/ryanflitcroft'>Github</a><br/>
-      <a href='https://www.linkedin.com/in/ryanflitcroft/'>LinkedIn</a><br/>
-      <a href=''>Email: </a>
-    </div>
+        <h3>Alice Hsing</h3>
+        <p>
+          Bio: Alice is a user-focused PERN stack developer based in Portland,
+          Oregon. She has a background in real estate and recruitment, and is
+          passionate about uplifting others and solving problems. Alice hopes to
+          use technologies to create empathetic solutions.
+        </p>
+        <p>Favorite Tea: The hopes and dreams of children</p>
+        <p>Contact Info:</p>
+        <a href="https://github.com/alicehsing">Github</a>
+        <br />
+        <a href="https://www.linkedin.com/in/alice-hsing-94603315/">LinkedIn</a>
+        <br />
+        <a href="alicehsing@gmail.com">Email: alicehsing@gmail.com </a>
+      </div><br/>
+      <div>
+        <h3>Ryan Flitcroft</h3>
+        <p>Bio: </p>
+        <p>Favorite Tea: Just Tea</p>
+        <p>Contact Info:</p>
+        <a href="https://github.com/ryanflitcroft">Github</a>
+        <br />
+        <a href="https://www.linkedin.com/in/ryanflitcroft/">LinkedIn</a>
+        <br />
+        <a href="">Email: </a>
+      </div>
     </>
-  )
+  );
 }
