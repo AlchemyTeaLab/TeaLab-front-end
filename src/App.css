@@ -30,7 +30,6 @@ body {
   background: linear-gradient(-45deg, #f0ddcb77, #d8c6b677, #d5cec877, #dcdad977);
 	background-size: 400% 400%;
 	animation: gradient 15s ease infinite;
-  text-shadow: 2px 2px 3px ghostwhite;
 }
 
 header {
@@ -53,6 +52,10 @@ header::before {
   left: 0px;
   opacity: 0.85;
   z-index: -1;
+}
+
+h1 {
+  text-shadow: 2px 2px 3px ghostwhite;
 }
 
 main {
@@ -78,6 +81,7 @@ footer {
   background-repeat: no-repeat;
   background-position: center;
   overflow: hidden;
+  z-index: 0;
 }
 
 button {
@@ -87,11 +91,16 @@ button {
 
 a {
   text-decoration: none;
-  color: var(--colorPrimary)
+  color: var(--colorPrimary);
+  font-weight: bold;
 }
 
 a:visited {
-  color: var(--colorActive)
+  color: var(--colorSuccess)
+}
+
+a:hover, button:hover {
+  font-size: 1.1em;
 }
 
 ul {

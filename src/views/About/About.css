@@ -1,0 +1,19 @@
+section.about {
+  height: 100%;
+  width: 95%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  background: rgba(248, 248, 255, 0.5);
+  border: 5px solid ghostwhite;
+  /* border-radius: 50px; */
+  /* padding: 1em; */
+}
+
+article {
+  width: 350px;
+  padding: 2em;
+  /* margin: 1.5em; */
+}
