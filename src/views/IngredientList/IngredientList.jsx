@@ -6,6 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useTour } from '@reactour/tour';
 
 export default function IngredientList() {
   const history = useHistory();
@@ -14,6 +15,7 @@ export default function IngredientList() {
   const { addRecipe } = useRecipes();
   const [recipeItems, setRecipeItems] = useState([]);
   const [type, setType] = useState('');
+  const { setDisabledActions, setCurrentStep } = useTour();
 
   //   const searching = !!search.length;
   //   const list = searching ? results : ingredients;
@@ -57,6 +59,11 @@ export default function IngredientList() {
     history.push('/profile');
   }
 
+function handleSumbitForTour() {
+    setDisabledActions(false);
+    setCurrentStep(8);
+  }
+
   return (
     <>
       {/* <h2>List of Ingredients</h2> */}
@@ -65,7 +72,7 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-      <form className={`${styles.ingredients} ${'fifth-step'}`} onSubmit={handleSubmit}>
+      <form className={`${styles.ingredients} ${'fifth-step'} ${'seventh-step'}`} onSubmit={handleSubmit}>
         <div>
           {type !== '' && (
             <section>
@@ -98,7 +105,7 @@ export default function IngredientList() {
                       : null
                   }
                   disabled={!recipeItems.length}
-                  className={`${styles.brew} ${'seventh-step'}`}
+                  className={styles.brew}
                   type="button"
                   onClick={() => {
                     setType(type === 'Base' ? 'Flavor' : 'Boost');
@@ -110,7 +117,7 @@ export default function IngredientList() {
               )}
               {type === 'Boost' && (
                 <button title="Brew your tea!" className={styles.brew}>
-                  <span className={styles.brew}></span>
+                  <span className={styles.brew} onClick={handleSumbitForTour}></span>
                   Brew!
                 </button>
               )}

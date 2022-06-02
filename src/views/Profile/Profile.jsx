@@ -25,7 +25,7 @@ export default function Profile() {
     <>
       <div>Profile</div>
       <section>
-        <ul>
+        <ul className='ninth-step'>
           {recipes.map((recipe, i) => (
             <li key={`${recipe.id}-${i}`}>
               <RecipeItem

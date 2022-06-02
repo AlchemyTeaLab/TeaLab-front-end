@@ -57,6 +57,7 @@ export default function getSteps(redirectFunction) {
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
+        disableActions: false,
       },
       {
         selector: '.sixth-step',
@@ -67,9 +68,21 @@ export default function getSteps(redirectFunction) {
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
+        disableActions: false,
       },
       {
         selector: '.seventh-step',
+        content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Pick your ingredients, then brew! The kettle is the button you click to move on to the next ingredient type, and to brew your tea when you're done, woof.</p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+        disableActions: true,
+      },
+      {
+        selector: '.eighth-step',
         content: (
           <>
             <div>
@@ -79,11 +92,11 @@ export default function getSteps(redirectFunction) {
           </>),
       },
       {
-        selector: '.eighth-step',
+        selector: '.ninth-step',
         content: (
           <>
             <div>
-              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You're on your profile page! Once you create recipes, they will appear here!</p>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You're on your profile page. All of the recipes you create will appear here, woof.</p>
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
