@@ -6,6 +6,7 @@ import { useAuth } from '../../hooks/useAuth';
 import styles from './IngredientList.css';
 import { useHistory } from 'react-router-dom';
 import toast from 'react-hot-toast';
+import { useTour } from '@reactour/tour';
 
 export default function IngredientList() {
   const history = useHistory();
@@ -14,6 +15,7 @@ export default function IngredientList() {
   const { addRecipe } = useRecipes();
   const [recipeItems, setRecipeItems] = useState([]);
   const [type, setType] = useState('');
+  const { setDisabledActions, setCurrentStep } = useTour();
 
   useEffect(() => {
     async function getIngredients() {
@@ -47,9 +49,20 @@ export default function IngredientList() {
     history.push('/profile');
   }
 
+function handleSumbitForTour() {
+    setDisabledActions(false);
+    setCurrentStep(8);
+  }
+
   return (
     <>
-      <form className={styles.ingredients} onSubmit={handleSubmit}>
+      {/* <h2>List of Ingredients</h2> */}
+
+      {/* <input
+                    placeholder="Search for a Ingredient"
+                    value={search}
+                    onChange={(e) => {handleSearch(e)}} /> */}
+      <form className={`${styles.ingredients} ${'fifth-step'} ${'seventh-step'}`} onSubmit={handleSubmit}>
         <div>
           {type !== '' && (
             <section>
@@ -94,7 +107,7 @@ export default function IngredientList() {
               )}
               {type === 'Boost' && (
                 <button title="Brew your tea!" className={styles.brew}>
-                  <span className={styles.brew}></span>
+                  <span className={styles.brew} onClick={handleSumbitForTour}></span>
                   Brew!
                 </button>
               )}

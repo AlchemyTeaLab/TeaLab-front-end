@@ -4,17 +4,23 @@ import Header from './components/Header/Header';
 import Loading from './components/Loading/Loading';
 import './App.css';
 import { useAuth } from './hooks/useAuth';
+import { TourProvider } from '@reactour/tour'
+import getSteps from './fixtures/TourSteps';
+import { useHistory } from 'react-router-dom';
 
 export default function App() {
   const { loading } = useAuth();
+  const history = useHistory();
 
   return loading ? (
   <Loading />
     ) : (
-    <>
-      <Header />
-      <Main />
-      <Footer />
+      <>
+        <TourProvider steps={() => getSteps(history.replace)}>
+          <Header />
+          <Main />
+          <Footer />
+        </TourProvider>
     </>
   );
 }

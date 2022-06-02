@@ -34,7 +34,7 @@ export default function Profile() {
     <>
       <div>Profile</div>
       <section>
-        <ul>{content}</ul>
+        <ul className={`${'ninth-step'} ${'tenth-step'}`}>{content}</ul>
       </section>
     </>
   );

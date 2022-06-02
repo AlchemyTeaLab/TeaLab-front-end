@@ -3,11 +3,13 @@ import { useHistory, useLocation } from 'react-router-dom';
 import styles from './Auth.css';
 import toast from 'react-hot-toast';
 import { useAuth } from '../../hooks/useAuth';
+import { useTour } from '@reactour/tour';
 
 export default function Auth() {
   const { user, newUser, setNewUser, authorizeUser } = useAuth();
   const location = useLocation();
   const history = useHistory();
+  const { setDisabledActions, setCurrentStep } = useTour();
 
   const [username, setUsername] = useState('');
   const [email, setEmail] = useState('');
@@ -40,19 +42,23 @@ export default function Auth() {
       toast.error(err.message);
     }
   };
-
+  const handleSumbitForTour = () => {
+    setDisabledActions(false);
+    setCurrentStep(4);
+  }
+  
   return (
     <>
       <form
         aria-label="sign in or sign up to continue"
-        className={styles.authForm}
+        className={`${styles.authForm} ${'third-step'}`}
         onSubmit={handleSubmit}
       >
         <div aria-label="container for sign in and sign up toggles">
           <span
             aria-label="toggle sign in for existing users"
             onClick={() => setNewUser(false)}
-            className={newUser ? styles.clickable : styles.inactive}
+            className={`${newUser ? styles.clickable : styles.inactive} ${styles.thirdStep}`}
           >
             Sign In
           </span>
@@ -97,7 +103,7 @@ export default function Auth() {
           onChange={(e) => setPassword(e.target.value)}
           required
         />
-        <button>{!newUser ? 'Sign in' : 'Sign up'}</button>
+        <button onClick={handleSumbitForTour}>{!newUser ? 'Sign in' : 'Sign up'}</button>
       </form>
       <img
         className={styles.table}

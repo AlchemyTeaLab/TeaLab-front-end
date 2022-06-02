@@ -17,7 +17,7 @@ export default function IngredientItem({ ingredient, handleChange }) {
         <span>
           {ingredient.commonName}
           <button
-            className={styles.detail}
+            className={`${styles.detail} ${'sixth-step'}`}
             type="button"
             title="More info"
             onClick={() => {
