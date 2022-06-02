@@ -18,22 +18,22 @@ export default function getSteps(redirectFunction) {
         content: (
           <>
             <div>
-              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Sign Up to brew some tea</p>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You're on the Auth page, woof.</p>
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
         action: () => { redirectFunction('/login') },
       },
-      // {
-      //   selector: '.third-step',
-      //   content: (
-      //     <>
-      //       <div>
-      //         <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Now you can go to another page!</p>
-      //         <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
-      //       </div>
-      //     </>),
-      //   },
+      {
+        selector: '.third-step',
+        content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Sign Up to create your account. You can still view ingredients without signing up, but you won't be able to brew tea yourself unless you have an account, woof.</p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+        },
       //   {
       //   selector: '.forth-step',
       //     content: (

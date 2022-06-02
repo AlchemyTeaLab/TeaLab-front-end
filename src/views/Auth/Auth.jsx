@@ -45,14 +45,14 @@ export default function Auth() {
     <>
       <form
         aria-label="sign in or sign up to continue"
-        className={styles.authForm}
+        className={`${styles.authForm} ${'third-step'}`}
         onSubmit={handleSubmit}
       >
         <div aria-label="container for sign in and sign up toggles">
           <span
             aria-label="toggle sign in for existing users"
             onClick={() => setNewUser(false)}
-            className={newUser ? styles.clickable : styles.inactive}
+            className={`${newUser ? styles.clickable : styles.inactive} ${styles.thirdStep}`}
           >
             Sign In
           </span>
