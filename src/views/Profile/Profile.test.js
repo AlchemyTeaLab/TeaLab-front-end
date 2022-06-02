@@ -10,32 +10,32 @@ import { server } from '../../setupTests';
 import { mockSignInData, mockSignUpData } from '../../fixtures/mockAuthData';
 import IngredientList from '../IngredientList/IngredientList';
 
-const user = { username: 'Test', email: 'test@email.com', password: 'supersecret' };
+const user = {
+  username: 'Test',
+  email: 'test@email.com',
+  password: 'supersecret',
+};
 
 describe('<App />', () => {
-    it('renders a mocked user', async () => {
-        render(
-            <MemoryRouter>
-                <AuthProvider>
-                    <TeaProvider>
-                        <App />
-                        <IngredientList />
-                    </TeaProvider>
-                </AuthProvider>
-            </MemoryRouter>
-        );
+  it('renders a mocked user', async () => {
+    render(
+      <MemoryRouter>
+        <AuthProvider>
+          <TeaProvider>
+            <App />
+            <IngredientList />
+          </TeaProvider>
+        </AuthProvider>
+      </MemoryRouter>
+    );
 
-        
+    expect(user.username).toEqual('Test');
+    expect(user.email).toEqual('test@email.com');
+    expect(user.password).toEqual('supersecret');
 
-        expect(user.username).toEqual('Test');
-        expect(user.email).toEqual('test@email.com');
-        expect(user.password).toEqual('supersecret');
-
-        waitFor(() => {
-            const home = screen.getByText('Base');
-        expect(home).toBeInTheDocument();
-        });
-
-        
+    waitFor(() => {
+      const home = screen.getByText('Base');
+      expect(home).toBeInTheDocument();
     });
+  });
 });
