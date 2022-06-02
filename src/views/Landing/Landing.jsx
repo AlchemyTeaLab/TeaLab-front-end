@@ -14,8 +14,8 @@ export default function Landing() {
       </div>
       <img
         className={styles.ruby}
-        src="https://res.cloudinary.com/tealab/image/upload/v1653970382/vector_assets/ruby_trans.svg"
-        alt=""
+        src="https://res.cloudinary.com/tealab/image/upload/v1654195346/vector_assets/rubyTable.svg"
+        alt="An dog wearing overalls and a straw hat, standing behind a wooden table"
       />
     </>
   );
