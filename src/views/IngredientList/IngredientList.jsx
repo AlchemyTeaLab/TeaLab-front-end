@@ -98,7 +98,7 @@ export default function IngredientList() {
                       : null
                   }
                   disabled={!recipeItems.length}
-                  className={styles.brew}
+                  className={`${styles.brew} ${'sixth-step'}`}
                   type="button"
                   onClick={() => {
                     setType(type === 'Base' ? 'Flavor' : 'Boost');
