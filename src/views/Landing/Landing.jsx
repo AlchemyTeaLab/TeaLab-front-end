@@ -7,7 +7,7 @@ export default function Landing() {
   return (
     <div>
       <button onClick={() => setIsOpen(true)}>
-        Take a tour of TeaLab with ? as your guide!</button>
+        Take a tour of TeaLab with Ruby the Tea Sommelier as your guide!</button>
     </div>
   )
 }
