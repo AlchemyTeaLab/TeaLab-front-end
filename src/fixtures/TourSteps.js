@@ -34,27 +34,27 @@ export default function getSteps(redirectFunction) {
             </div>
           </>),
         },
-      //   {
-      //   selector: '.forth-step',
-      //     content: (
-      //     <>
-      //       <div>
-      //         <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Check out AnotherPage!</p>
-      //         <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
-      //       </div>
-      //     </>),
-      //     action: () => { history.replace('/anotherpage') },
-      // },
-      // {
-      //   selector: '.fifth-step',
-      //   content: (
-      //     <>
-      //       <div>
-      //         <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You can go back to Home!</p>
-      //         <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
-      //       </div>
-      //     </>),
-      // },
+        {
+        selector: '.forth-step',
+          content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You're on the ingredients page, woof.</p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+          action: () => { redirectFunction('/ingredients') },
+      },
+      {
+        selector: '.fifth-step',
+        content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>Here, you can create your own tea recipe! You pick bases, flavors, and boosts. The only requirement is you need to pick at least one base, woof. </p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+      },
       // {
       //   selector: '.sixth-step',
       //   content: (

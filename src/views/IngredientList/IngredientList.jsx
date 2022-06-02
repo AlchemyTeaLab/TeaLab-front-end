@@ -65,7 +65,7 @@ export default function IngredientList() {
                     placeholder="Search for a Ingredient"
                     value={search}
                     onChange={(e) => {handleSearch(e)}} /> */}
-      <form className={styles.ingredients} onSubmit={handleSubmit}>
+      <form className={`${styles.ingredients} ${'fifth-step'}`} onSubmit={handleSubmit}>
         <div>
           {type !== '' && (
             <section>
