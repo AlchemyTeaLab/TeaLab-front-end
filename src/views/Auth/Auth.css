@@ -18,3 +18,7 @@ form div span {
 .inactive {
   color: var(--colorInactive);
 }
+
+img.table {
+  width: 650px;
+}

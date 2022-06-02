@@ -15,16 +15,6 @@ export default function IngredientList() {
   const [recipeItems, setRecipeItems] = useState([]);
   const [type, setType] = useState('');
 
-  //   const searching = !!search.length;
-  //   const list = searching ? results : ingredients;
-
-  //   const handleSearch = (event) => {
-  //     setSearch(event.target.value);
-  //     const filteredSearch = ingredients.filter((ingredient) =>
-  //     ingredient.name.toLowerCase().includes(event.target.value.toLowerCase().trim()));
-  //     setResults(filteredSearch);
-  // }
-
   useEffect(() => {
     async function getIngredients() {
       await getListIngredients();
@@ -59,12 +49,6 @@ export default function IngredientList() {
 
   return (
     <>
-      {/* <h2>List of Ingredients</h2> */}
-
-      {/* <input
-                    placeholder="Search for a Ingredient"
-                    value={search}
-                    onChange={(e) => {handleSearch(e)}} /> */}
       <form className={styles.ingredients} onSubmit={handleSubmit}>
         <div>
           {type !== '' && (
