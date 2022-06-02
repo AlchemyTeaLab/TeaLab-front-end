@@ -11,7 +11,13 @@ export default function Header() {
   return (
     <>
       <header className={publicLocation ? styles.public : null}>
-        <h1>TeaLab</h1>
+        <div>
+          <img
+            className={styles.logo}
+            src="https://res.cloudinary.com/tealab/image/upload/v1654198488/vector_assets/teaLab.png"
+            alt="TeaLab logo"
+          />
+        </div>
         {user?.email && !publicLocation && (
           <p>
             Welcome <span className={styles.username}>{user?.username}</span>!

@@ -4,16 +4,32 @@ section.about {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
-  overflow-x: scroll;
+  overflow-y: scroll;
   scroll-behavior: smooth;
   background: rgba(248, 248, 255, 0.5);
   border: 5px solid ghostwhite;
-  /* border-radius: 50px; */
-  /* padding: 1em; */
 }
 
-article {
-  width: 350px;
-  padding: 2em;
-  /* margin: 1.5em; */
+figure {
+  width: 200px;
+  padding: 0.5em;
+  display: flex;
+  flex-direction: column;
+  text-align: center;
+}
+
+h4, p {
+  margin: 0.25em;
+}
+
+h3, h4 {
+  color: var(--color5);
+}
+
+img.profilePic {
+  width: 150px;
+  height: 150px;
+  object-fit: scale-down;
+  border-radius: 50%;
+  border: 5px solid #677d0d33;
 }

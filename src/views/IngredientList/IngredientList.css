@@ -1,16 +1,17 @@
 form.ingredients {
-  width: 650px;
+  width: 800px;
+  background-image: url('https://res.cloudinary.com/tealab/image/upload/v1654101367/vector_assets/table.svg');
+  background-position: bottom;
+  background-repeat: no-repeat;
+  padding: 0 0 1.5em;
 }
 
 form.ingredients div section ul {
-  /* height: 100%; */
   width: 500px;
   overflow-x: scroll;
   scroll-behavior: smooth;
   background: rgba(248, 248, 255, 0.5);
   border: 5px solid ghostwhite;
-  /* border-radius: 50px; */
-  /* padding: 1em; */
 }
 
 h3 {
@@ -27,10 +28,9 @@ button span.brew:active {
   transform: rotate(25deg);
 }
 
-
 button span.brew {
-  width: 100px;
-  height: 100px;
+  width: 150px;
+  height: 150px;
   display: block;
   background: url('https://res.cloudinary.com/tealab/image/upload/v1653969720/vector_assets/kettle_trans.svg') no-repeat top left;
   background-size: contain;

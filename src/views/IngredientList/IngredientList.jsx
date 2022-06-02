@@ -17,16 +17,6 @@ export default function IngredientList() {
   const [type, setType] = useState('');
   const { setDisabledActions, setCurrentStep } = useTour();
 
-  //   const searching = !!search.length;
-  //   const list = searching ? results : ingredients;
-
-  //   const handleSearch = (event) => {
-  //     setSearch(event.target.value);
-  //     const filteredSearch = ingredients.filter((ingredient) =>
-  //     ingredient.name.toLowerCase().includes(event.target.value.toLowerCase().trim()));
-  //     setResults(filteredSearch);
-  // }
-
   useEffect(() => {
     async function getIngredients() {
       await getListIngredients();
