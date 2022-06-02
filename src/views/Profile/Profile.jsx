@@ -7,36 +7,34 @@ export default function Profile() {
   const { getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
   const [recipes, setRecipes] = useState([]);
 
-  const loadRecipe = async () => {
+  const loadRecipes = async () => {
     const fullRecipes = await getUserRecipes(user.id);
     setRecipes(fullRecipes);
-    console.log(fullRecipes);
-    console.log('full recipes', recipes);
   };
 
   useEffect(() => {
     const getData = async () => {
-      await loadRecipe();
+      await loadRecipes();
     };
     getData();
   }, []);
+
+  let content;
+  if (recipes.length > 0) {
+    content = recipes.map((recipe, i) => (
+      <li key={`${recipe.id}-${i}`}>
+        <RecipeItem recipe={recipe} loadRecipe={loadRecipes} />
+      </li>
+    ));
+  } else {
+    content = <p>No recipes!</p>;
+  }
 
   return (
     <>
       <div>Profile</div>
       <section>
-        <ul>
-          {recipes.map((recipe, i) => (
-            <li key={`${recipe.id}-${i}`}>
-              <RecipeItem
-                recipe={recipe}
-                // updateRecipe={updateRecipe}
-                // removeRecipe={removeRecipe}
-                loadRecipe={loadRecipe}
-              />
-            </li>
-          ))}
-        </ul>
+        <ul>{content}</ul>
       </section>
     </>
   );

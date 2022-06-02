@@ -2,17 +2,10 @@ import { useState } from 'react';
 import styles from './RecipeItem.css';
 import { useRecipes } from '../../hooks/useRecipes';
 
-export default function RecipeItem({
-  recipe,
-  // updateRecipe,
-  // removeRecipe,
-  loadRecipe,
-}) {
+export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
   const [isEditing, setIsEditing] = useState(false);
   const [recipeNotes, setRecipeNotes] = useState(recipe.notes);
   const { updateRecipe, removeRecipe } = useRecipes();
-
-  console.log('recipe item', recipe);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -22,13 +15,15 @@ export default function RecipeItem({
       userId: recipe.user_id,
       notes: recipeNotes,
     });
-    await loadRecipe();
+    await loadRecipes();
     setIsEditing(false);
   };
 
   const handleDelete = async () => {
     console.log('handleDelete', recipe.id);
     await removeRecipe(recipe.id);
+    setIsEditing(false);
+    await loadRecipes();
   };
 
   let content;
@@ -66,13 +61,7 @@ export default function RecipeItem({
             name="notes"
             value={recipeNotes}
             aria-label="Edit field"
-            onChange={
-              (e) => setRecipeNotes(e.target.value)
-              // updateRecipe({
-              //   ...recipe,
-              //   notes: e.target.value,
-              // });
-            }
+            onChange={(e) => setRecipeNotes(e.target.value)}
           />
           <button type="submit" aria-label="Save changes">
             Save
