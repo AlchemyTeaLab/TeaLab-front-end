@@ -6,10 +6,25 @@ export default function Footer() {
   const { user, setUser, signOutUser } = useAuth();
   const history = useHistory();
   const { pathname } = useLocation();
-  const routes = [
-    { path: '/ingredients', name: 'Home' },
-    { path: '/about', name: 'About' },
-  ];
+
+  const routes =
+    user?.email && user.email === 'admin@tealab.com'
+      ? [
+          { path: '/admin', name: 'Admin' },
+          { path: '/profile', name: 'Profile' },
+          { path: '/ingredients', name: 'Home' },
+          { path: '/about', name: 'About' },
+        ]
+      : user?.email && user.email !== 'admin@tealab.com'
+      ? [
+          { path: '/profile', name: 'Profile' },
+          { path: '/ingredients', name: 'Home' },
+          { path: '/about', name: 'About' },
+        ]
+      : [
+          { path: '/ingredients', name: 'Home' },
+          { path: '/about', name: 'About' },
+        ];
 
   const signInOutButton = user?.email ? (
     <button onClick={handleSignOut}>Sign Out</button>
@@ -28,16 +43,6 @@ export default function Footer() {
       <footer>
         <nav>
           <ul>
-            {user?.email && user.email === 'admin@tealab.com' && (
-              <li>
-                <Link to="/admin">Admin</Link>
-              </li>
-            )}
-            {user?.email && (
-              <li>
-                <Link to="/profile">Profile</Link>
-              </li>
-            )}
             {routes.map(
               ({ name, path }, i) =>
                 pathname !== path && (
