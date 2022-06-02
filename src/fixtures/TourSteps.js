@@ -102,6 +102,17 @@ export default function getSteps(redirectFunction) {
           </>),
         action: () => { redirectFunction('/profile') },
       },
+      {
+        selector: '.tenth-step',
+        content: (
+          <>
+            <div>
+              <p className={`${styles.bubble} ${styles.bubbleBottomLeft}`}>You can click edit to add notes to your recipe or delete a recipe if you'd no longer like to keep it. Thanks for joining me on our tour! I hope you enjoy TeaLab, woof!</p>
+              <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
+            </div>
+          </>),
+        action: () => { redirectFunction('/profile') },
+    },
   ];
 return steps
 }
