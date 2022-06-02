@@ -15,12 +15,12 @@ export default function About() {
     </div><br/>
     <div>
       <h3>Clare McDonald</h3>
-      <p>Bio: </p>
-      <p>Favorite Tea: The blood of my enemies!</p>
-      <p>Contact Info:</p>
+      <p>Bio: Clare is a full-stack software developer from Eugene, OR. She has a background in arts management and theatre, which has given her a knack for creativity, collaboration, and dependability.</p>
+      <p>Favorite Tea: Earl Gray</p>
+      <p>Contact Info: below!</p>
       <a href='https://github.com/ClareMcDonald'>Github</a><br/>
-      <a href='https://www.linkedin.com/in/clare-s-mcdonald/'></a>LinkedIn<br/>
-      <a href=''>Email: </a>
+      <a href='https://www.linkedin.com/in/clare-s-mcdonald/'>LinkedIn</a><br/>
+      <a href=''>Email: clare.s.mcdonald@gmail.com </a>
     </div><br/>
     <div>
       <h3>Ari Harlem-Caballero</h3>
