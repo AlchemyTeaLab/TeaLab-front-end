@@ -6,7 +6,6 @@ import { setupServer } from 'msw/node';
 import AuthProvider from './context/AuthProvider';
 import App from './App';
 import TeaProvider from './context/TeaProvider';
-//import { rest } from 'msw';
 import { server } from './setupTests';
 import { mockSignInData, mockSignUpData } from './fixtures/mockAuthData';
 
@@ -77,6 +76,9 @@ describe('<App />', () => {
         
         const signUpButton = screen.getByRole('button', { name: /sign up/i });
         userEvent.click(signUpButton);
+
+        // const home = screen.getByText('Base');
+        // await expect(home).toBeInTheDocument();
     });  
     
     it('renders a mocked user', async () => {

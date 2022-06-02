@@ -33,7 +33,9 @@ describe('<App />', () => {
 
         waitFor(() => {
             const home = screen.getByText('Base');
-        expect(home).toBeInTheDocument();
+            expect(home).toBeInTheDocument();
+
+            
         });
 
         
