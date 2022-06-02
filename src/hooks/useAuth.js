@@ -48,6 +48,7 @@ export const useAuth = () => {
 
   const signOutUser = async () => {
     try {
+      setUser({ email: null });
       await signOut();
     } catch (err) {
       throw err;

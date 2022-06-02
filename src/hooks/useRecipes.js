@@ -16,7 +16,7 @@ export const useRecipes = () => {
 
   const { recipes, recipeDispatch } = context;
 
-  const [recipe, setRecipe] = useState(null);
+  // const [recipe, setRecipe] = useState(null);
 
   const addRecipe = async (recipe, ingredients) => {
     const newRecipe = await createRecipe({ recipe, ingredients });
@@ -24,13 +24,13 @@ export const useRecipes = () => {
   };
 
   const updateRecipe = async (recipe) => {
-    if (!recipe) return;
+    // if (!recipe) return;
 
     try {
       const updated = await updateRecipeById({ ...recipe });
       const payload = { ...updated };
 
-      setRecipe(payload);
+      // setRecipe(payload);
       recipeDispatch({ type: 'UPDATE', payload });
       return payload;
     } catch (error) {
@@ -38,12 +38,13 @@ export const useRecipes = () => {
     }
   };
 
-  const removeRecipe = async () => {
-    if (!recipe) return;
+  const removeRecipe = async (id) => {
+    // if (!recipe) return;
 
     try {
-      const payload = await removeRecipeById(recipe.id);
-      setRecipe(null);
+      const payload = await removeRecipeById(id);
+      console.log('payload', payload);
+      // setRecipe(null);
       if (recipes) recipeDispatch({ type: 'DELETE', payload });
       return payload;
     } catch (error) {
