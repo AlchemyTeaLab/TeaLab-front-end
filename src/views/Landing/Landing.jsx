@@ -1,9 +1,11 @@
 import React from 'react';
 import { useTour } from '@reactour/tour';
 import styles from './Landing.css';
+import { useHistory } from 'react-router-dom';
 
 export default function Landing() {
   const { setIsOpen } = useTour();
+  const history = useHistory();
 
   return (
     <>
