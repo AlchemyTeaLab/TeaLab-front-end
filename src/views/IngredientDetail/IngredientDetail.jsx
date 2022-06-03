@@ -16,11 +16,17 @@ export default function IngredientDetail({ ingredient, open, onClose }) {
   return ReactDOM.createPortal(
     <>
       <div style={MODAL_STYLES}>
-        <h3>Common Name: {ingredient.commonName}</h3>
-        <p>Scientific Name: {ingredient.scientificName}</p>
-        <p>Type: {ingredient.type}</p>
-        <p>Health Benefits: {ingredient.healthBenefits}</p>
-        <p>Description: {ingredient.description}</p>
+        <h3>{ingredient.commonName}</h3>
+        <h4>Scientific Name</h4>
+        <p>{ingredient.scientificName}</p>
+        <h4>Type</h4>
+        <p>{ingredient.type}</p>
+        <h4>Health Benefits:</h4>
+        {ingredient.healthBenefits.map((i) => (
+          <p>{i}</p>
+        ))}
+        <h4>Description</h4>
+        <p>{ingredient.description}</p>
         <button type="button" onClick={onClose}>
           ❌
         </button>
