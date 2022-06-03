@@ -1,5 +1,4 @@
 import { useState } from 'react';
-import styles from './RecipeItem.css';
 import { useRecipes } from '../../hooks/useRecipes';
 
 export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
@@ -41,8 +40,9 @@ export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
             );
           })}
         </div>
+
         <p>{recipe.notes || null}</p>
-        <div className={styles.buttons}>
+        <div>
           <button type="button" onClick={() => setIsEditing(true)}>
             {recipe.notes ? 'Edit Notes' : 'Add Notes'}
           </button>

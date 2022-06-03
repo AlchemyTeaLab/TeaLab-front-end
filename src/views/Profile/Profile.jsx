@@ -37,6 +37,11 @@ export default function Profile() {
       <div>Profile</div>
       <section className={styles.profile}>
         <ul className={`${'ninth-step'} ${'tenth-step'}`}>{content}</ul>
+        <img
+          className={styles.recipeShelf}
+          src="https://res.cloudinary.com/tealab/image/upload/v1654208788/vector_assets/recipeShelf.svg"
+          alt="Tea spilling off a shelf"
+        />
       </section>
     </>
   );

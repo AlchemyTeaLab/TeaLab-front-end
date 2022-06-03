@@ -17,7 +17,8 @@ export async function updateIngredientById(ingredient) {
     credentials: 'include',
     mode: 'cors',
     body: JSON.stringify(ingredient),
-  })
+  });
+
   return res.json();
 }
 
@@ -28,7 +29,8 @@ export async function removeIngredientById(id) {
     credentials: 'include',
     mode: 'cors',
     body: JSON.stringify(ingredient),
-  })
+  });
+
   return res.json();
 }
 
@@ -37,15 +39,15 @@ export const getIngredients = async () => {
     credentials: 'include',
     mode: 'cors',
   });
+
   return res.json();
-  
-}
+};
 
 export const getIngredientsById = async ({ id }) => {
   const res = await fetch(`${process.env.API_URL}/api/v1/ingredients/${id}`, {
     credentials: 'include',
     mode: 'cors',
   });
+
   return res.json();
-  
-}
+};

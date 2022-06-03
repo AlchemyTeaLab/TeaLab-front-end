@@ -49,20 +49,17 @@ export default function IngredientList() {
     history.push('/profile');
   }
 
-function handleSumbitForTour() {
+  function handleSumbitForTour() {
     setDisabledActions(false);
     setCurrentStep(8);
   }
 
   return (
     <>
-      {/* <h2>List of Ingredients</h2> */}
-
-      {/* <input
-                    placeholder="Search for a Ingredient"
-                    value={search}
-                    onChange={(e) => {handleSearch(e)}} /> */}
-      <form className={`${styles.ingredients} ${'fifth-step'} ${'seventh-step'}`} onSubmit={handleSubmit}>
+      <form
+        className={`${styles.ingredients} ${'fifth-step'} ${'seventh-step'}`}
+        onSubmit={handleSubmit}
+      >
         <div>
           {type !== '' && (
             <section>
@@ -107,7 +104,11 @@ function handleSumbitForTour() {
               )}
               {type === 'Boost' && (
                 <button title="Brew your tea!" className={styles.brew}>
-                  <span className={styles.brew} onClick={handleSumbitForTour}></span>
+                  <span
+                    title="Brew your tea!"
+                    className={styles.brew}
+                    onClick={handleSumbitForTour}
+                  ></span>
                   Brew!
                 </button>
               )}
