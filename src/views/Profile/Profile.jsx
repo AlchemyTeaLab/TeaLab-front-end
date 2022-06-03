@@ -6,7 +6,7 @@ import styles from './Profile.css';
 
 export default function Profile() {
   const { user } = useAuth();
-  const { getUserRecipes, updateRecipe, removeRecipe } = useRecipes();
+  const { getUserRecipes } = useRecipes();
   const [recipes, setRecipes] = useState([]);
 
   const loadRecipes = async () => {

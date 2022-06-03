@@ -4,7 +4,6 @@ import PrivateRoute from '../../components/PrivateRoute/PrivateRoute';
 import About from '../About/About';
 import Auth from '../Auth/Auth';
 import Landing from '../Landing/Landing';
-import IngredientDetail from '../IngredientDetail/IngredientDetail';
 import IngredientList from '../IngredientList/IngredientList';
 import Profile from '../Profile/Profile';
 import Admin from '../Admin/Admin';

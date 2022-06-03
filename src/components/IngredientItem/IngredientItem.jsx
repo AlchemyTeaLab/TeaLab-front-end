@@ -1,4 +1,3 @@
-import { Link } from 'react-router-dom';
 import IngredientDetail from '../../views/IngredientDetail/IngredientDetail';
 import { useState } from 'react';
 import { useAuth } from '../../hooks/useAuth';

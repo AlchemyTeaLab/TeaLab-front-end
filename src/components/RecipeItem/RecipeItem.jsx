@@ -19,7 +19,6 @@ export default function RecipeItem({ recipe, loadRecipe: loadRecipes }) {
   };
 
   const handleDelete = async () => {
-    console.log('handleDelete', recipe.id);
     await removeRecipe(recipe.id);
     setIsEditing(false);
     await loadRecipes();

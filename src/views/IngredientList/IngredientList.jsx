@@ -49,7 +49,7 @@ export default function IngredientList() {
     history.push('/profile');
   }
 
-  function handleSumbitForTour() {
+  function handleSubmitForTour() {
     setDisabledActions(false);
     setCurrentStep(8);
   }
@@ -107,7 +107,7 @@ export default function IngredientList() {
                   <span
                     title="Brew your tea!"
                     className={styles.brew}
-                    onClick={handleSumbitForTour}
+                    onClick={handleSubmitForTour}
                   ></span>
                   Brew!
                 </button>
