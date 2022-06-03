@@ -78,7 +78,7 @@ export default function getSteps(redirectFunction) {
               <img alt='friendly dog face' src='ruby_trans.png' height='120px' />
             </div>
           </>),
-        disableActions: true,
+        disableActions: false,
       },
       {
         selector: '.eighth-step',
