@@ -8,6 +8,7 @@ import { TourProvider } from '@reactour/tour'
 import getSteps from './fixtures/TourSteps';
 import { useHistory } from 'react-router-dom';
 
+
 export default function App() {
   const { loading } = useAuth();
   const history = useHistory();
