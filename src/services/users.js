@@ -3,7 +3,7 @@ export const signIn = async (email, password) => {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/session`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
+      // credentials: 'include',
       mode: 'cors',
       body: JSON.stringify({ email, password }),
     });
@@ -20,7 +20,7 @@ export const signUp = async (email, password, username) => {
     const res = await fetch(`${process.env.API_URL}/api/v1/users`, {
       method: 'POST',
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
+      // credentials: 'include',
       mode: 'cors',
       body: JSON.stringify({ email, password, username }),
     });
@@ -36,7 +36,7 @@ export const getCurrentUser = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/me`, {
       headers: { 'Content-Type': 'application/json' },
-      credentials: 'include',
+      // credentials: 'include',
     });
     return res.json();
   } catch (err) {
@@ -48,7 +48,7 @@ export const signOut = async () => {
   try {
     const res = await fetch(`${process.env.API_URL}/api/v1/users/session`, {
       method: 'DELETE',
-      credentials: 'include',
+      // credentials: 'include',
       mode: 'cors',
     });
 
